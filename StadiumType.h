@@ -1,19 +1,29 @@
 #pragma once
 #include "constants.h"
 #include<string.h>
+#include<stdlib.h>
 class StadiumType
 {
-	StadiumType(int codOfTypeStadium, char nameOfStadium)
+public:
+	StadiumType(int codeOfTypeStadium, char nameOfStadium[WORD_LENGTH])
 	{
-
+		this->setCodeOfTypeStadium(codeOfTypeStadium);
+		this->setNameOfStadium(nameOfStadium);
 	}
 
-	void setCodOfTypeStadium(int code)
+	StadiumType()
+	{
+		char name[WORD_LENGTH] = "Stadium";
+		this->setNameOfStadium(name);
+		this->setCodeOfTypeStadium(rand());
+	}
+
+	void setCodeOfTypeStadium(int code)
 	{
 		this->codeOfTypeStadium = code;
 	}
 
-	int getCodOfTypeStadium()
+	int getCodeOfTypeStadium()
 	{
 		return this->codeOfTypeStadium;
 	}
@@ -30,7 +40,7 @@ class StadiumType
 		return name;
 	}
 
-private:
+protected:
 	int codeOfTypeStadium;
 	char nameOfStadium[WORD_LENGTH];
 };
