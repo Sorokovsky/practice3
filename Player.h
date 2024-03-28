@@ -5,6 +5,24 @@ using namespace std;
 class Player : public Team
 {
 public:
+	Player(string positionName,
+		string requirements,
+		int salary,
+		string phoneNumber,
+		string address,
+		int age,
+		string teamCode,
+		string teamName,
+		string playerCode,
+		string surname,
+		string name,
+		string fatherName,
+		time_t birthday,
+		int height,
+		int weight,
+		string role,
+		int number
+	);
 	string getPlayerCode();
 	string getSurname();
 	string getName();
@@ -22,6 +40,7 @@ public:
 	void setHeight(int height);
 	void setWeight(int height);
 	void setRole(string role);
+	void setNumber(int number);
 private:
 	string playerCode;
 	string surname;
