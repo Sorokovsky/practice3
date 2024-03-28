@@ -38,7 +38,7 @@ public:
 	void setFatherName(string fatherName);
 	void setBirthday(time_t birthday);
 	void setHeight(int height);
-	void setWeight(int height);
+	void setWeight(int weight);
 	void setRole(string role);
 	void setNumber(int number);
 private:
