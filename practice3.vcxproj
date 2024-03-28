@@ -21,11 +21,13 @@
   <ItemGroup>
     <ClInclude Include="Coach.h" />
     <ClInclude Include="Position.h" />
+    <ClInclude Include="Stadium.h" />
     <ClInclude Include="StadiumType.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Coach.cpp" />
     <ClCompile Include="Position.cpp" />
+    <ClCompile Include="Stadium.cpp" />
     <ClCompile Include="StadiumType.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
