@@ -29,7 +29,7 @@ void StadiumType::setNameOfStadiumType(string name)
 void StadiumType::save(StadiumType stadiumType)
 {
 	ofstream file;
-	file.open(StadiumType::filePath, ios::binary, ios::app);
+	file.open(StadiumType::filePath, ios::binary | ios::app);
 	if (!file.is_open())
 	{
 		cout << "\n \t File not found";
