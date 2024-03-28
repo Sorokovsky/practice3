@@ -106,7 +106,7 @@ void Player::setHeight(int height)
 	this->height = height;
 }
 
-void Player::setWeight(int height)
+void Player::setWeight(int weight)
 {
 	this->weight = weight;
 }
