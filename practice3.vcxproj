@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Coach.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="StadiumType.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Coach.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="StadiumType.cpp" />
   </ItemGroup>
