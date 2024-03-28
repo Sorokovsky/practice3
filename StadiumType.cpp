@@ -25,18 +25,3 @@ void StadiumType::setNameOfStadiumType(string name)
 {
 	this->nameOfStadiumType = name;
 }
-
-void StadiumType::save(StadiumType stadiumType)
-{
-	ofstream file;
-	file.open(StadiumType::filePath, ios::binary | ios::app);
-	if (!file.is_open())
-	{
-		cout << "\n \t File not found";
-		return;
-	}
-	StadiumType::stadiumsType.push_back(stadiumType);
-	file.write((char*)&stadiumType, sizeof(StadiumType));
-}
-
-string StadiumType::filePath = "stadiums-type.dat";

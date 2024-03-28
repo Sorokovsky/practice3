@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Position.h" />
     <ClInclude Include="StadiumType.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Position.cpp" />
     <ClCompile Include="StadiumType.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
