@@ -19,6 +19,24 @@ Stadium::Stadium(
     this->setNotes(notes);
 }
 
+Stadium::Stadium(
+    StadiumType stadiumType,
+    string stadiumCode,
+    string stadiumName,
+    string stadiumAddress,
+    string stadiumPhoneNumber,
+    string masterHead,
+    string notes
+) : StadiumType(stadiumType.getCodeOfStadiumType(), stadiumType.getNameOfStadiumType())
+{
+    this->setStadiumCode(stadiumCode);
+    this->setStadiumName(stadiumName);
+    this->setStadiumAddress(stadiumAddress);
+    this->setStadiumPhoneNumber(stadiumPhoneNumber);
+    this->setMasterHead(masterHead);
+    this->setNotes(notes);
+}
+
 string Stadium::getStadiumCode()
 {
     return this->stadiumCode;

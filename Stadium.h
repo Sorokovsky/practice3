@@ -11,10 +11,19 @@ public:
 		string stadiumCode,
 		string stadiumName,
 		string stadiumAddress,
-		string stadiumAhoneNumber,
+		string stadiumPhoneNumber,
 		string masterHead,
 		string notes
 		);
+	Stadium(
+		StadiumType stadiumType,
+		string stadiumCode,
+		string stadiumName,
+		string stadiumAddress,
+		string stadiumAhoneNumber,
+		string masterHead,
+		string notes
+	);
 	string getStadiumCode();
 	string getStadiumName();
 	string getStadiumAddress();

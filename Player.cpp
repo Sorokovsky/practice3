@@ -31,6 +31,30 @@ Player::Player(
 	this->setNumber(number);
 }
 
+Player::Player(
+	Team team, 
+	string playerCode, 
+	string surname, 
+	string name, 
+	string fatherName, 
+	time_t birthday, 
+	int height, 
+	int weight, 
+	string role, 
+	int number
+) : Team(team.getPositionName(), team.getRequirements(), team.getSalary(), team.getCoachPhoneNumber(), team.getCoachAddress(), team.getAge(), team.getTeamCode(), team.getTeamName())
+{
+	this->setPlayerCode(playerCode);
+	this->setSurname(surname);
+	this->setName(name);
+	this->setFatherName(fatherName);
+	this->setBirthday(birthday);
+	this->setHeight(height);
+	this->setWeight(weight);
+	this->setRole(role);
+	this->setNumber(number);
+}
+
 string Player::getPlayerCode()
 {
 	return this->playerCode;

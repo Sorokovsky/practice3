@@ -27,6 +27,14 @@ public:
 		time_t dateOfGame,
 		time_t timeOfGame
 	);
+	Game(
+		Stadium stadium, 
+		Team team,
+		string gameCode,
+		string gameName,
+		time_t dateOfGame,
+		time_t timeOfGame
+	);
 	string getGameCode();
 	string getGameName();
 	time_t getDateOfGame();

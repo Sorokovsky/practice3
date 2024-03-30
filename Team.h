@@ -14,6 +14,11 @@ public:
 		string teamCode,
 		string teamName
 	);
+	Team(
+		Coach coach,
+		string teamCode,
+		string teamName
+	);
 	string getTeamCode();
 	string getTeamName();
 	void setTeamCode(string teamCode);

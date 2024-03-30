@@ -14,6 +14,16 @@ Team::Team(string positionName,
 	this->setTeamName(teamName);
 }
 
+Team::Team(
+	Coach coach, 
+	string teamCode, 
+	string teamName
+) : Coach(coach.getPositionName(), coach.getRequirements(), coach.getSalary(), coach.getCoachPhoneNumber(), coach.getCoachAddress(), coach.getAge())
+{
+	this->setTeamCode(teamCode);
+	this->setTeamName(teamName);
+}
+
 string Team::getTeamCode()
 {
     return this->teamCode;

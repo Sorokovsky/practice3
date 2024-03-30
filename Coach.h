@@ -12,6 +12,12 @@ public:
 		  string coachAddress, 
 		  int age
 		);
+	Coach(
+		Position position,
+		string coachPhoneNumber,
+		string coachAddress,
+		int age
+	);
 	string getCoachPhoneNumber();
 	string getCoachAddress();
 	int getAge();

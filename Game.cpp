@@ -48,6 +48,22 @@ Game::Game(
 	this->setTimeOfGame(timeOfGame);
 }
 
+Game::Game(
+	Stadium stadium,
+	Team team,
+	string gameCode,
+	string gameName,
+	time_t dateOfGame,
+	time_t timeOfGame
+) : Team(team.getPositionName(), team.getRequirements(), team.getSalary(), team.getCoachPhoneNumber(), team.getCoachAddress(), team.getAge(), team.getTeamCode(), team.getTeamName()),
+	Stadium(stadium.getCodeOfStadiumType(), stadium.getNameOfStadiumType(), stadium.getStadiumCode(), stadium.getStadiumName(), stadium.getStadiumAddress(), stadium.getStadiumPhoneNumber(), stadium.getMasterHead(), stadium.getNotes())
+{
+	this->setGameCode(gameCode);
+	this->setGameName(gameName);
+	this->setDateOfGame(dateOfGame);
+	this->setTimeOfGame(timeOfGame);
+}
+
 string Game::getGameCode()
 {
 	return this->gameCode;

@@ -23,6 +23,18 @@ public:
 		string role,
 		int number
 	);
+	Player(
+		Team team,
+		string playerCode,
+		string surname,
+		string name,
+		string fatherName,
+		time_t birthday,
+		int height,
+		int weight,
+		string role,
+		int number
+	);
 	string getPlayerCode();
 	string getSurname();
 	string getName();

@@ -14,6 +14,18 @@ Coach::Coach(
 	this->setAge(age);
 }
 
+Coach::Coach(
+	Position position,
+	string coachPhoneNumber,
+	string coachAddress,
+	int age
+) : Position(position.getPositionName(), position.getRequirements(), position.getSalary()) 
+{
+	this->setCoachPhoneNumber(coachPhoneNumber);
+	this->setCoachAddress(coachAddress);
+	this->setAge(age);
+}
+
 string Coach::getCoachPhoneNumber()
 {
 	return this->coachPhoneNumber;
