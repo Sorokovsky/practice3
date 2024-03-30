@@ -12,6 +12,7 @@ public:
 	string getNameOfStadiumType();
 	void setCodeOfStadiumType(string code);
 	void setNameOfStadiumType(string name);
+	virtual void print();
 private:
 	string codeOfStadiumType;
 	string nameOfStadiumType;

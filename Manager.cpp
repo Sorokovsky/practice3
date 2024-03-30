@@ -1,5 +1,4 @@
 #include "Manager.h"
-
 Manager::Manager(
 	string stadiumTypesFile, 
 	string stadiumsFile, 
@@ -52,6 +51,11 @@ void Manager::add(Player player)
 void Manager::add(Position position)
 {
 	this->add<Position>(this->positionsFiles, position, &this->positions);
+}
+
+void Manager::showStadiumTypes()
+{
+	this->showAll<StadiumType>(this->stadiumTypes);
 }
 
 void Manager::loadStadiumTypes()
@@ -157,9 +161,18 @@ void Manager::load(string filePath, vector<T>* to)
 	T item;
 	while (!file.eof())
 	{
-		file.read((char*)&item, sizeof(T));
 		if (file.eof()) break;
+		file.read((char*)&item, sizeof(item));
 		to->push_back(item);
 	}
 	file.close();
+}
+
+template<typename T>
+void Manager::showAll(vector<T> list)
+{
+	for (int i = 0; i < list.size(); i++)
+	{
+		list.at(i).print();
+	}
 }

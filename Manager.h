@@ -31,6 +31,7 @@ public:
 	void add(Game game);
 	void add(Player player);
 	void add(Position position);
+	void showStadiumTypes();
 	void loadStadiumTypes();
 	void loadStadiums();
 	void loadTeams();
@@ -51,6 +52,8 @@ private:
 	void add(string filePath, T item, vector<T>* to);
 	template<typename T>
 	void load(string filePath, vector<T>* to);
+	template<typename T>
+	void showAll(vector<T> list);
 	vector<StadiumType> stadiumTypes;
 	vector<Stadium> stadiums;
 	vector<Team> teams;
