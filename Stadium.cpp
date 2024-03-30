@@ -5,16 +5,16 @@ Stadium::Stadium(
     string nameOfStadiumType, 
     string stadiumCode, 
     string stadiumName, 
-    string address, 
-    string phoneNumber, 
+    string stadiumAddress, 
+    string stadiumPhoneNumber, 
     string masterHead, 
     string notes
 ) : StadiumType(codeOfStadiumType, nameOfStadiumType)
 {
     this->setStadiumName(stadiumName);
     this->setStadiumCode(stadiumCode);
-    this->setAddress(address);
-    this->setPhoneNumber(phoneNumber);
+    this->setStadiumAddress(stadiumAddress);
+    this->setStadiumPhoneNumber(stadiumPhoneNumber);
     this->setMasterHead(masterHead);
     this->setNotes(notes);
 }
@@ -29,14 +29,14 @@ string Stadium::getStadiumName()
     return this->stadiumName;
 }
 
-string Stadium::getAddress()
+string Stadium::getStadiumAddress()
 {
-    return this->address;
+    return this->stadiumAddress;
 }
 
-string Stadium::getPhoneNumber()
+string Stadium::getStadiumPhoneNumber()
 {
-    return this->phoneNumber;
+    return this->stadiumPhoneNumber;
 }
 
 string Stadium::getMasterHead()
@@ -59,14 +59,14 @@ void Stadium::setStadiumName(string stadiumName)
     this->stadiumName = stadiumName;
 }
 
-void Stadium::setAddress(string address)
+void Stadium::setStadiumAddress(string address)
 {
-    this->address = address;
+    this->stadiumAddress = address;
 }
 
-void Stadium::setPhoneNumber(string phoneNumber)
+void Stadium::setStadiumPhoneNumber(string phoneNumber)
 {
-    this->phoneNumber = phoneNumber;
+    this->stadiumPhoneNumber = phoneNumber;
 }
 
 void Stadium::setMasterHead(string masterHead)

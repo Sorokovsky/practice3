@@ -10,28 +10,28 @@ public:
 		string nameOfStadiumType,
 		string stadiumCode,
 		string stadiumName,
-		string address,
-		string phoneNumber,
+		string stadiumAddress,
+		string stadiumAhoneNumber,
 		string masterHead,
 		string notes
 		);
 	string getStadiumCode();
 	string getStadiumName();
-	string getAddress();
-	string getPhoneNumber();
+	string getStadiumAddress();
+	string getStadiumPhoneNumber();
 	string getMasterHead();
 	string getNotes();
 	void setStadiumCode(string stadiumCode);
 	void setStadiumName(string stadiumName);
-	void setAddress(string address);
-	void setPhoneNumber(string phoneNumber);
+	void setStadiumAddress(string address);
+	void setStadiumPhoneNumber(string phoneNumber);
 	void setMasterHead(string masterHead);
 	void setNotes(string notets);
 private:
 	string stadiumCode;
 	string stadiumName;
-	string address;
-	string phoneNumber;
+	string stadiumAddress;
+	string stadiumPhoneNumber;
 	string masterHead;
 	string notes;
 };

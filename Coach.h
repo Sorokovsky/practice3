@@ -8,18 +8,18 @@ public:
 	Coach(string positionName, 
 		  string requirements, 
 		  int salary, 
-		  string phoneNumber, 
-		  string address, 
+		  string coachPhoneNumber, 
+		  string coachAddress, 
 		  int age
 		);
-	string getPhoneNumber();
-	string getAddress();
+	string getCoachPhoneNumber();
+	string getCoachAddress();
 	int getAge();
-	void setPhoneNumber(string phoneNumber);
-	void setAddress(string address);
+	void setCoachPhoneNumber(string phoneNumber);
+	void setCoachAddress(string address);
 	void setAge(int age);
 private:
-	string phoneNumber;
-	string address;
+	string coachPhoneNumber;
+	string coachAddress;
 	int age;
 };

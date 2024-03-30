@@ -4,24 +4,24 @@ Coach::Coach(
 	string positionName,
 	string requirements, 
 	int salary, 
-	string phoneNumber, 
-	string address, 
+	string coachPhoneNumber, 
+	string coachAddress, 
 	int age
 ) : Position(positionName, requirements, salary)
 {
-	this->setPhoneNumber(phoneNumber);
-	this->setAddress(address);
+	this->setCoachPhoneNumber(coachPhoneNumber);
+	this->setCoachAddress(coachAddress);
 	this->setAge(age);
 }
 
-string Coach::getPhoneNumber()
+string Coach::getCoachPhoneNumber()
 {
-	return this->phoneNumber;
+	return this->coachPhoneNumber;
 }
 
-string Coach::getAddress()
+string Coach::getCoachAddress()
 {
-	return this->address;
+	return this->coachAddress;
 }
 
 int Coach::getAge()
@@ -29,14 +29,14 @@ int Coach::getAge()
 	return this->age;
 }
 
-void Coach::setPhoneNumber(string phoneNumber)
+void Coach::setCoachPhoneNumber(string phoneNumber)
 {
-	this->phoneNumber = phoneNumber;
+	this->coachPhoneNumber = phoneNumber;
 }
 
-void Coach::setAddress(string address)
+void Coach::setCoachAddress(string address)
 {
-	this->address = address;
+	this->coachAddress = address;
 }
 
 void Coach::setAge(int age)
