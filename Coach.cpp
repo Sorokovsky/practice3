@@ -26,6 +26,10 @@ Coach::Coach(
 	this->setAge(age);
 }
 
+Coach::Coach() : Position()
+{
+}
+
 string Coach::getCoachPhoneNumber()
 {
 	return this->coachPhoneNumber;

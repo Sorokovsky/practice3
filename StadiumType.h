@@ -7,6 +7,7 @@ class StadiumType
 {
 public:
 	StadiumType(string codeOfStadiumType, string nameOfStadiumType);
+	StadiumType();
 	string getCodeOfStadiumType();
 	string getNameOfStadiumType();
 	void setCodeOfStadiumType(string code);

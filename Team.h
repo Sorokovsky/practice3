@@ -19,6 +19,7 @@ public:
 		string teamCode,
 		string teamName
 	);
+	Team();
 	string getTeamCode();
 	string getTeamName();
 	void setTeamCode(string teamCode);

@@ -55,6 +55,11 @@ Player::Player(
 	this->setNumber(number);
 }
 
+
+Player::Player() : Team()
+{
+}
+
 string Player::getPlayerCode()
 {
 	return this->playerCode;

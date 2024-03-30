@@ -35,6 +35,7 @@ public:
 		time_t dateOfGame,
 		time_t timeOfGame
 	);
+	Game();
 	string getGameCode();
 	string getGameName();
 	time_t getDateOfGame();

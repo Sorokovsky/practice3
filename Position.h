@@ -5,6 +5,7 @@ class Position
 {
 public:
 	Position(string positionName, string requirements, int salary);
+	Position();
 	string getPositionName();
 	string getRequirements();
 	int getSalary();

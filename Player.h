@@ -35,6 +35,7 @@ public:
 		string role,
 		int number
 	);
+	Player();
 	string getPlayerCode();
 	string getSurname();
 	string getName();

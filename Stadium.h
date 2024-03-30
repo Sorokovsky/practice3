@@ -24,6 +24,7 @@ public:
 		string masterHead,
 		string notes
 	);
+	Stadium();
 	string getStadiumCode();
 	string getStadiumName();
 	string getStadiumAddress();

@@ -37,6 +37,10 @@ Stadium::Stadium(
     this->setNotes(notes);
 }
 
+Stadium::Stadium() : StadiumType()
+{
+}
+
 string Stadium::getStadiumCode()
 {
     return this->stadiumCode;

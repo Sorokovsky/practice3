@@ -6,6 +6,10 @@ StadiumType::StadiumType(string codeOfStadiumType, string nameOfStadiumType)
 	this->setNameOfStadiumType(nameOfStadiumType);
 }
 
+StadiumType::StadiumType()
+{
+}
+
 string StadiumType::getCodeOfStadiumType()
 {
 	return this->codeOfStadiumType;

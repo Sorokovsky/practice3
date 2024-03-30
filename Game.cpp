@@ -64,6 +64,10 @@ Game::Game(
 	this->setTimeOfGame(timeOfGame);
 }
 
+Game::Game() : Stadium(), Team()
+{
+}
+
 string Game::getGameCode()
 {
 	return this->gameCode;

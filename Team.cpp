@@ -24,6 +24,10 @@ Team::Team(
 	this->setTeamName(teamName);
 }
 
+Team::Team() : Coach()
+{
+}
+
 string Team::getTeamCode()
 {
     return this->teamCode;

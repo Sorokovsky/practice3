@@ -7,6 +7,10 @@ Position::Position(string positionName, string requirements, int salary)
 	this->setSalary(salary);
 }
 
+Position::Position()
+{
+}
+
 string Position::getPositionName()
 {
 	return this->positionName;
