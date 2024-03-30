@@ -1,6 +1,5 @@
 #pragma once
 #include<iostream> 
-#include<typeinfo>
 #include<vector>
 #include<fstream>
 #include "StadiumType.h"
@@ -48,12 +47,6 @@ public:
 	void setPositionsFile(string filePath);
 private:
 	bool open(fstream* file, string path, ios_base::openmode mode);
-	template<typename T>
-	void add(string filePath, T item, vector<T>* to);
-	template<typename T>
-	void load(string filePath, vector<T>* to);
-	template<typename T>
-	void showAll(vector<T> list);
 	vector<StadiumType> stadiumTypes;
 	vector<Stadium> stadiums;
 	vector<Team> teams;

@@ -13,6 +13,7 @@ StadiumType enterType()
 int main()
 {
 	Manager manager(stadiumTypesFile, stadiumsFile, teamsFile, coachesFile, gamesFile, playersFile, positionsFile);
+	manager.loadStadiumTypes();
 	manager.add(enterType());
 	manager.showStadiumTypes();
 	return 0;
