@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="Coach.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Manager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Stadium.h" />
