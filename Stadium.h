@@ -37,6 +37,7 @@ public:
 	void setStadiumPhoneNumber(string phoneNumber);
 	void setMasterHead(string masterHead);
 	void setNotes(string notets);
+	void print() override;
 private:
 	string stadiumCode;
 	string stadiumName;

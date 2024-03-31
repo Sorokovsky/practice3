@@ -54,6 +54,7 @@ public:
 	void setWeight(int weight);
 	void setRole(string role);
 	void setNumber(int number);
+	void print() override;
 private:
 	string playerCode;
 	string surname;

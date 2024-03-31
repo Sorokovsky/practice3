@@ -40,3 +40,12 @@ void Position::setSalary(int salary)
 {
 	this->salary = salary;
 }
+
+void Position::print()
+{
+	cout << "\n \t Position { ";
+	cout << " Position Name: " << this->getPositionName();
+	cout << ", Requirements: " << this->getRequirements();
+	cout << ", Salary: "; this->getSalary();
+	cout << " }";
+}

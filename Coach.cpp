@@ -61,3 +61,15 @@ void Coach::setAge(int age)
 		age = 1;
 	this->age = age;
 }
+
+void Coach::print()
+{
+	cout << "\n \t Coach { ";
+	cout << " Position Name: " << this->getPositionName();
+	cout << ", Requirements: " << this->getRequirements();
+	cout << ", Salary: "; this->getSalary();
+	cout << ", Coach phone number: " << this->getCoachPhoneNumber();
+	cout << ", Coach address: " << this->getCoachAddress();
+	cout << ", Coach age: " << this->getAge();
+	cout << " }";
+}

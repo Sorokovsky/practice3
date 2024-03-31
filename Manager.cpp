@@ -20,43 +20,114 @@ Manager::Manager(
 	this->stadiumTypes = vector<StadiumType>();
 }
 
-void Manager::add(StadiumType stadiumType)
+void Manager::add(StadiumType item)
 {
-	fstream file;
-	bool isOpen = this->open(&file, this->stdadiumTypesFile, ios::binary | ios::app);
-	if (isOpen == false)
-	{
-		cout << "\n \t Error";
-		return;
-	}
-	StadiumType item;
-	file.write((char*)&item, sizeof(StadiumType));
-	this->stadiumTypes.push_back(item);
-	file.close();
+	this->add<StadiumType>(item, &this->stadiumTypes, this->stadiumTypesFile);
 }
 
-void Manager::showStadiumTypes()
+void Manager::add(Stadium item)
 {
-	for (int i = 0; i < this->stadiumTypes.size(); i++)
-	{
-		this->stadiumTypes.at(i).print();
-	}
+	this->add<Stadium>(item, &this->stadiums, this->stadiumsFile);
+}
+
+void Manager::add(Team item)
+{
+	this->add<Team>(item, &this->teams, this->teamsFile);
+}
+
+void Manager::add(Coach item)
+{
+	this->add<Coach>(item, &this->coaches, this->coachesFile);
+}
+
+void Manager::add(Game item)
+{
+	this->add<Game>(item, &this->games, this->gamesFile);
+}
+
+void Manager::add(Player item)
+{
+	this->add<Player>(item, &this->players, this->playersFile);
+}
+
+void Manager::add(Position item)
+{
+	this->add<Position>(item, &this->positions, this->positionsFiles);
 }
 
 void Manager::loadStadiumTypes()
 {
-	fstream file;
-	bool isOpen = this->open(&file, this->stdadiumTypesFile, ios::binary | ios::in);
-	if (isOpen == false)
-	{
-		cout << "\n \t Error";
-		return;
-	}
+	this->load<StadiumType>(&this->stadiumTypes, this->stadiumTypesFile);
+}
+
+void Manager::loadStadiums()
+{
+	this->load<Stadium>(&this->stadiums, this->stadiumsFile);
+}
+
+void Manager::loadTeams()
+{
+	this->load<Team>(&this->teams, this->teamsFile);
+}
+
+void Manager::loadCoaches()
+{
+	this->load<Coach>(&this->coaches, this->coachesFile);
+}
+
+void Manager::loadGames()
+{
+	this->load<Game>(&this->games, this->gamesFile);
+}
+
+void Manager::loadPlayers()
+{
+	this->load<Player>(&this->players, this->playersFile);
+}
+
+void Manager::loadPositions()
+{
+	this->load<Position>(&this->positions, this->positionsFiles);
+}
+
+void Manager::showStadiumTypes()
+{
+	this->showAll<StadiumType>(&this->stadiumTypes);
+}
+
+void Manager::showStadiums()
+{
+	this->showAll<Stadium>(&this->stadiums);
+}
+
+void Manager::showTeams()
+{
+	this->showAll<Team>(&this->teams);
+}
+
+void Manager::showCoaches()
+{
+	this->showAll<Coach>(&this->coaches);
+}
+
+void Manager::showGames()
+{
+	this->showAll<Game>(&this->games);
+}
+
+void Manager::showPlayers()
+{
+	this->showAll<Player>(&this->players);
+}
+
+void Manager::showPositions()
+{
+	this->showAll<Position>(&this->positions);
 }
 
 void Manager::setStadiumTypesFile(string filePath)
 {
-	this->stdadiumTypesFile = filePath;
+	this->stadiumTypesFile = filePath;
 }
 
 void Manager::setStadiumsFile(string filePath)
@@ -89,13 +160,44 @@ void Manager::setPositionsFile(string filePath)
 	this->positionsFiles = filePath;
 }
 
-bool Manager::open(fstream* file, string path, ios_base::openmode mode)
+template<typename T>
+void Manager::load(vector<T>* to, string filePath)
 {
-	*file = fstream(path, mode);
-	if (file->is_open() == false)
-	{
-		cout << "\n \t file undefined. Error.";
-		return false;
+	ifstream file(filePath, ios::binary);
+	if (!file.is_open()) {
+		std::cout << "\n \t File error: " << filePath;
+		return;
 	}
-	return true;
+
+	T item;
+	while (!file.eof()) {
+		file.read((char*)&item, sizeof(T));
+		if (file.eof()) break;
+		to->push_back(item);
+	}
+
+	file.close();
+}
+
+template<typename T>
+void Manager::add(T item, vector<T>* to, string filePath)
+{
+	ofstream file(filePath, ios::app);
+	if (file.is_open() == false)
+	{
+		cout << "\n \t Error file.";
+		return;
+	}
+	to->push_back(item);
+	file.write((char*)&item, sizeof(T));
+	file.close();
+}
+
+template<typename T>
+void Manager::showAll(vector<T>* list)
+{
+	for (int i = 0; i < list->size(); i++)
+	{
+		list->at(i).print();
+	}
 }

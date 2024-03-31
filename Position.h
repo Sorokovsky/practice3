@@ -12,6 +12,7 @@ public:
 	void setPositionName(string positionName);
 	void setRequirements(string requirements);
 	void setSalary(int salary);
+	virtual void print();
 private:
 	string positionName;
 	string requirements;

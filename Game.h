@@ -44,6 +44,7 @@ public:
 	void setGameName(string gameName);
 	void setDateOfGame(time_t dateOfGame);
 	void setTimeOfGame(time_t timeOfGame);
+	void print() override;
 private:
 	string gameCode;
 	string gameName;

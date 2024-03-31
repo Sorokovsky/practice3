@@ -23,14 +23,13 @@ public:
 		string playersFile,
 		string positionsFile
 	);
-	void add(StadiumType stadiumType);
-	void add(Stadium stadium);
-	void add(Team team);
-	void add(Coach coach);
-	void add(Game game);
-	void add(Player player);
-	void add(Position position);
-	void showStadiumTypes();
+	void add(StadiumType item);
+	void add(Stadium item);
+	void add(Team item);
+	void add(Coach item);
+	void add(Game item);
+	void add(Player item);
+	void add(Position item);
 	void loadStadiumTypes();
 	void loadStadiums();
 	void loadTeams();
@@ -38,6 +37,13 @@ public:
 	void loadGames();
 	void loadPlayers();
 	void loadPositions();
+	void showStadiumTypes();
+	void showStadiums();
+	void showTeams();
+	void showCoaches();
+	void showGames();
+	void showPlayers();
+	void showPositions();
 	void setStadiumTypesFile(string filePath);
 	void setStadiumsFile(string filePath);
 	void setTeamsFile(string filePath);
@@ -46,7 +52,12 @@ public:
 	void setPlayersFile(string filePath);
 	void setPositionsFile(string filePath);
 private:
-	bool open(fstream* file, string path, ios_base::openmode mode);
+	template<typename T>
+	void load(vector<T>* to, string filePath);
+	template<typename T>
+	void add(T item, vector<T>* to, string filePath);
+	template<typename T>
+	void showAll(vector<T>* list);
 	vector<StadiumType> stadiumTypes;
 	vector<Stadium> stadiums;
 	vector<Team> teams;
@@ -54,7 +65,7 @@ private:
 	vector<Game> games;
 	vector<Player> players;
 	vector<Position> positions;
-	string stdadiumTypesFile;
+	string stadiumTypesFile;
 	string stadiumsFile;
 	string teamsFile;
 	string coachesFile;

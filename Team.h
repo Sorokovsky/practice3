@@ -24,6 +24,7 @@ public:
 	string getTeamName();
 	void setTeamCode(string teamCode);
 	void setTeamName(string teamName);
+	void print() override;
 private:
 	string teamCode;
 	string teamName;

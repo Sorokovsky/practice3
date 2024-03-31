@@ -25,6 +25,7 @@ public:
 	void setCoachPhoneNumber(string phoneNumber);
 	void setCoachAddress(string address);
 	void setAge(int age);
+	void print() override;
 private:
 	string coachPhoneNumber;
 	string coachAddress;

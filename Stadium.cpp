@@ -100,3 +100,16 @@ void Stadium::setNotes(string notets)
 {
     this->notes = notets;
 }
+
+void Stadium::print()
+{
+    cout << "\n \t Stadium { ";
+    cout << "Stadium type code: " << this->getCodeOfStadiumType();
+    cout << ", Stadium type name: "; cout << this->getNameOfStadiumType();
+    cout << ", Stadium code: " << this->getStadiumCode();
+    cout << ", Stadium name: " << this->getStadiumName();
+    cout << ", Stadium address: " << this->getStadiumAddress();
+    cout << ", Stadium phoneNumber: " << this->getStadiumPhoneNumber();
+    cout << ", Stadium masterhead: " << this->getMasterHead();
+    cout << " }";
+}

@@ -14,7 +14,8 @@ int main()
 {
 	Manager manager(stadiumTypesFile, stadiumsFile, teamsFile, coachesFile, gamesFile, playersFile, positionsFile);
 	manager.loadStadiumTypes();
-	manager.add(enterType());
+	StadiumType type = enterType();
+	manager.add(type);
 	manager.showStadiumTypes();
 	return 0;
 }
