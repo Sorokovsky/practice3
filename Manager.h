@@ -60,6 +60,10 @@ public:
 	void findGames(bool isNeed(Game item));
 	void findPlayers(bool isNeed(Player player));
 	void findStadium(bool isNeed(Stadium stadium, StadiumType type), StadiumType type);
+	double avarageAgeOfPlayers();
+	Date dateOfFirstGame();
+	void changeStadiumPhone(bool canEdit(Stadium stadium, Stadium comparer));
+	void deletePlayer(bool canDelete(Player item, string code), string code);
 	static Date today;
 private:
 	template<typename T>

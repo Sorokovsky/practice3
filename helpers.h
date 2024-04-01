@@ -26,3 +26,5 @@ bool compareGameInJuly(Game item);
 bool comparePlayerBy20Years(Player item);
 bool compareStadiumByType(Stadium item, StadiumType type);
 bool compareGameAugust2012(Game item);
+bool canStadiumEdit(Stadium stadium, Stadium comparer);
+bool canDeletePlayer(Player item, string code);

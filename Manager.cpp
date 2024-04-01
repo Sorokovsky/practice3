@@ -189,6 +189,60 @@ void Manager::findStadium(bool isNeed(Stadium stadium, StadiumType type), Stadiu
 	this->find<Stadium, StadiumType>(&this->stadiums, isNeed, comparer);
 }
 
+double Manager::avarageAgeOfPlayers()
+{
+	double sum = 0.0;
+	for (int i = 0; i < this->players.size(); i++)
+	{
+		sum += (Manager::today.getYear() - this->players.at(i).getBirthday().getYear());
+	}
+	return sum / this->players.size();
+}
+
+Date Manager::dateOfFirstGame()
+{
+	Date date;
+	if (this->games.size() == 0)
+	{
+		cout << "\n \t No games";
+		return date;
+	}
+	date = this->games.at(0).getDateOfGame();
+	for (int i = 0; i < this->games.size(); i++)
+	{
+		if (Date::compare(this->games.at(i).getDateOfGame(), date) == Equels::secondMore)
+		{
+			date = this->games.at(i).getDateOfGame();
+		}
+	}
+	return date;
+}
+
+void Manager::changeStadiumPhone(bool canEdit(Stadium stadium, Stadium comparer))
+{
+	string phone;
+	cout << "\n \t Enter phone: "; cin >> phone;
+	cout << "\n \n Enter stadium: "; Stadium stadium = enterStadium();
+	for (int i = 0; i < this->stadiums.size(); i++)
+	{
+		if (canEdit(this->stadiums.at(i), stadium))
+		{
+			this->stadiums.at(i).setStadiumPhoneNumber(phone);
+		}
+	}
+}
+
+void Manager::deletePlayer(bool canDelete(Player item, string code), string code)
+{
+	for (int i = 0; i < this->players.size(); i++)
+	{
+		if (canDelete(this->players.at(i), code))
+		{
+			this->players.erase(this->players.begin() + i);
+		}
+	}
+}
+
 template<typename T>
 void Manager::load(vector<T>* to, string filePath)
 {

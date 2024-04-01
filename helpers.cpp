@@ -144,3 +144,12 @@ bool compareGameAugust2012(Game item)
 {
 	return (item.getDateOfGame().getMonth() == 8) && (item.getDateOfGame().getYear() == 2012);
 }
+bool canStadiumEdit(Stadium stadium, Stadium comparer)
+{
+	return (stadium.getStadiumCode().compare(comparer.getStadiumCode()) == 0);
+}
+
+bool canDeletePlayer(Player item, string code)
+{
+	return item.getPlayerCode().compare(code) == 0;
+}
