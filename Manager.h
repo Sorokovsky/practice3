@@ -7,13 +7,12 @@
 #include "Team.h"
 #include "Coach.h"
 #include "Game.h"
-#include "Manager.h"
 #include "Player.h"
 #include "Position.h"
 #include <algorithm>
 #include "helpers.h"
 #include "Date.h"
-#define isDev false
+#define isDev true
 using namespace std;
 class Manager
 {

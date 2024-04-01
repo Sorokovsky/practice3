@@ -27,8 +27,8 @@ Stadium enterStadium()
 {
 	StadiumType type = enterType();
 	string code, address, name, phoneNumber, masterHead, notes;
-	cout << "\n \t Enter stadium code: "; cin >> code;
-	cout << "\n \t Enter stadium name: "; cin >> name;
+	cout << "\n \t Enter stadium type code: "; cin >> code;
+	cout << "\n \t Enter stadium type name: "; cin >> name;
 	cout << "\n \t Enter stadium address: "; cin >> address;
 	cout << "\n \t Enter stadium phoneNumber: "; cin >> phoneNumber;
 	cout << "\n \t Enter stadium masterhead: "; cin >> masterHead;
@@ -115,6 +115,12 @@ int chooseOperation()
 	cout << "\n \t 13-Delete game in 11 September 2011.";
 	cout << "\n \t 14-Get stadiums which have 1 or more game.";
 	cout << "\n \t 15-Get Surname of smaller player.";
+	cout << "\n \t 16-Add stadium.";
+	cout << "\n \t 17-Show stadiums.";
+	cout << "\n \t 18-Add player.";
+	cout << "\n \t 19-Show players.";
+	cout << "\n \t 20-Add Games.";
+	cout << "\n \t 21-Show Games.";
 	cout << "\n \t >> ";
 	cin >> operation;
 	return operation;

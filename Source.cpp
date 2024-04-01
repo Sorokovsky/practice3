@@ -60,7 +60,7 @@ int main()
 		}
 		case 8:
 		{
-			cout << "\n \t Date of first game: "; 
+			cout << "\n \t Date of first game: ";
 			Date date = manager.dateOfFirstGame();
 			cout << "{ Year: " << date.getYear() << ", Month: " << date.monthToString() << ", Day: " << date.getDay() << " }";
 			break;
@@ -75,7 +75,7 @@ int main()
 		}
 		case 10:
 		{
-			
+
 			manager.changeStadiumPhone(canStadiumEdit);
 			cout << "\n \t Stadiums";
 			manager.showStadiums();
@@ -119,9 +119,46 @@ int main()
 			manager.surnameOfYangerPlayer();
 			break;
 		}
+		case  16:
+		{
+			Stadium stadium = enterStadium();
+			manager.add(stadium);
+			break;
+		}
+		case 17:
+		{
+			cout << "\n \t Stadiums: ";
+			manager.showStadiums();
+			break;
+		}
+		case 18:
+		{
+			Player player = enterPlayer();
+			manager.add(player);
+			break;
+		}
+		case 19:
+		{
+			cout << "\n \t Players: ";
+			manager.showPlayers();
+			break;
+		}
+		case 20:
+		{
+			Game game = enterGame();
+			manager.add(game);
+			break;
+		}
+		case 21:
+		{
+			cout << "\n \t Games: ";
+			manager.showGames();
+			break;
+		}
 		default:
 			cout << "\n \t Try again.";
 			break;
 		}
 	}
+	return 0;
 }
