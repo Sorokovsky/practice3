@@ -88,6 +88,18 @@ int main()
 			manager.deletePlayer(canDeletePlayer, code);
 			cout << "\n \t Players: ";
 			manager.showPlayers();
+			break;
+		}
+		case 12:
+		{
+			vector<Player> newPlayers;
+			manager.copyPlayerByYear(&newPlayers, canCopyPlayer, 1984);
+			cout << "\n \t new Players";
+			for (int i = 0; i < newPlayers.size(); i++)
+			{
+				newPlayers.at(i).print();
+			}
+			break;
 		}
 		default:
 			cout << "\n \t Try again.";

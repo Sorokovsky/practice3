@@ -243,6 +243,17 @@ void Manager::deletePlayer(bool canDelete(Player item, string code), string code
 	}
 }
 
+void Manager::copyPlayerByYear(vector<Player>* newList, bool canCopy(Player item, int comparer), int comparer)
+{
+	for (int i = 0; i < this->players.size(); i++)
+	{
+		if (canCopy(this->players.at(i), comparer))
+		{
+			newList->push_back(this->players.at(i));
+		}
+	}
+}
+
 template<typename T>
 void Manager::load(vector<T>* to, string filePath)
 {

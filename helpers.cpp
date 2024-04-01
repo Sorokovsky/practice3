@@ -153,3 +153,8 @@ bool canDeletePlayer(Player item, string code)
 {
 	return item.getPlayerCode().compare(code) == 0;
 }
+
+bool canCopyPlayer(Player item, int year)
+{
+	return item.getBirthday().getYear() == year;
+}
