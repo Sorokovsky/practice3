@@ -10,6 +10,9 @@
 #include "Manager.h"
 #include "Player.h"
 #include "Position.h"
+#include <algorithm>
+#include "helpers.h"
+#include "Date.h"
 #define isDev false
 using namespace std;
 class Manager
@@ -53,6 +56,11 @@ public:
 	void setGamesFile(string filePath);
 	void setPlayersFile(string filePath);
 	void setPositionsFile(string filePath);
+	void sortPlayers(bool canSwap(Player i1, Player i2));
+	void findGames(bool isNeed(Game item));
+	void findPlayers(bool isNeed(Player player));
+	void findStadium(bool isNeed(Stadium stadium, StadiumType type), StadiumType type);
+	static Date today;
 private:
 	template<typename T>
 	void load(vector<T>* to, string filePath);
@@ -60,6 +68,12 @@ private:
 	void add(T item, vector<T>* to, string filePath);
 	template<typename T>
 	void showAll(vector<T>* list);
+	template<typename T>
+	void sort(vector<T>* list, string filePath, bool canSwap(T i1, T i2));
+	template<typename T>
+	void find(vector<T>* list, bool isNeed(T item));
+	template<typename T, typename R>
+	void find(vector<T>* list, bool isNeed(T item, R comparer), R comparer);
 	vector<StadiumType> stadiumTypes;
 	vector<Stadium> stadiums;
 	vector<Team> teams;

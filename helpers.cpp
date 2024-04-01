@@ -94,3 +94,53 @@ Game enterGame()
 	cout << "\n \t Game name: "; cin >> name;
 	return Game(stadium, team, code, name, date, time);
 }
+
+int chooseOperation()
+{
+	int operation;
+	cout << "\n \t Choose operation: ";
+	cout << "\n \t 0-Exit.";
+	cout << "\n \t 1-Get stadiums.";
+	cout << "\n \t 2-Get players sorted by birthdays.";
+	cout << "\n \t 3-Get Games in July.";
+	cout << "\n \t 4-Get players yanger 20 years.";
+	cout << "\n \t 5-Enter stadium by type.";
+	cout << "\n \t 6-Get game in August 2012.";
+	cout << "\n \t 7-Get Avarage age of players in team.";
+	cout << "\n \t 8-Get firts game in stadium.";
+	cout << "\n \t 9-Add game.";
+	cout << "\n \t 10-Change phone of stadium.";
+	cout << "\n \t 11-Delete player.";
+	cout << "\n \t 12-Copy in new table players which birthYear == 1986.";
+	cout << "\n \t 13-Delete game in 11 September 2011.";
+	cout << "\n \t 14-Get stadiums which have 1 or more game.";
+	cout << "\n \t 15-Get Surname of smaller player.";
+	cout << "\n \t >> ";
+	cin >> operation;
+	return operation;
+}
+
+bool comparePlayersByDescDates(Player i1, Player i2)
+{
+	return Date::compare(i1.getBirthday(), i2.getBirthday()) == Equels::firstMore;
+}
+
+bool compareGameInJuly(Game item)
+{
+	return item.getDateOfGame().getMonth() == 7;
+}
+
+bool comparePlayerBy20Years(Player item)
+{
+	return (Manager::today.getYear() - item.getBirthday().getYear()) < 20;
+}
+
+bool compareStadiumByType(Stadium item, StadiumType type)
+{
+	return (item.getCodeOfStadiumType().compare(type.getCodeOfStadiumType()) == 0) && (item.getNameOfStadiumType().compare(type.getNameOfStadiumType()) == 0);
+}
+
+bool compareGameAugust2012(Game item)
+{
+	return (item.getDateOfGame().getMonth() == 8) && (item.getDateOfGame().getYear() == 2012);
+}

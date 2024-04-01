@@ -16,8 +16,6 @@ Manager::Manager(
 	this->setGamesFile(gamesFile);
 	this->setPlayersFile(playersFile);
 	this->setPositionsFile(positionsFile);
-
-	this->stadiumTypes = vector<StadiumType>();
 }
 
 void Manager::add(StadiumType item)
@@ -171,6 +169,26 @@ void Manager::setPositionsFile(string filePath)
 	this->positionsFiles = filePath;
 }
 
+void Manager::sortPlayers(bool canSwap(Player i1, Player i2))
+{
+	this->sort<Player>(&this->players, this->playersFile, canSwap);
+}
+
+void Manager::findGames(bool isNeed(Game item))
+{
+	this->find<Game>(&this->games, isNeed);
+}
+
+void Manager::findPlayers(bool isNeed(Player player))
+{
+	this->find<Player>(&this->players, isNeed);
+}
+
+void Manager::findStadium(bool isNeed(Stadium stadium, StadiumType type), StadiumType comparer)
+{
+	this->find<Stadium, StadiumType>(&this->stadiums, isNeed, comparer);
+}
+
 template<typename T>
 void Manager::load(vector<T>* to, string filePath)
 {
@@ -218,3 +236,38 @@ void Manager::showAll(vector<T>* list)
 		list->at(i).print();
 	}
 }
+
+template<typename T>
+void Manager::sort(vector<T>* list, string filePath, bool canSwap(T i1, T i2))
+{
+	std::sort(list->begin(), list->end(), canSwap);
+	if (list->size() == 0)
+		return;
+}
+
+template<typename T>
+void Manager::find(vector<T>* list, bool isNeed(T item))
+{
+	for (int i = 0; i < list->size(); i++)
+	{
+		if (isNeed(list->at(i)))
+		{
+			list->at(i).print();
+		}
+	}
+}
+
+template<typename T, typename R>
+
+void Manager::find(vector<T>* list, bool isNeed(T item, R comparer), R comparer)
+{
+	for (int i = 0; i < list->size(); i++)
+	{
+		if (isNeed(list->at(i), comparer))
+		{
+			list->at(i).print();
+		}
+	}
+}
+
+Date Manager::today = Date();
