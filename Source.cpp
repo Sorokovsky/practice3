@@ -101,6 +101,24 @@ int main()
 			}
 			break;
 		}
+		case 13:
+		{
+			Date date(2011, 9, 11);
+			manager.deleteGameByDate(canDeleteGameByDate, date);
+			cout << "\n \t Games";
+			manager.showGames();
+			break;
+		}
+		case 14:
+		{
+			manager.getStadiumsWhichHavedGame();
+			break;
+		}
+		case 15:
+		{
+			manager.surnameOfYangerPlayer();
+			break;
+		}
 		default:
 			cout << "\n \t Try again.";
 			break;

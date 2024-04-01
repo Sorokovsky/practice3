@@ -254,6 +254,61 @@ void Manager::copyPlayerByYear(vector<Player>* newList, bool canCopy(Player item
 	}
 }
 
+void Manager::deleteGameByDate(bool canDelete(Game item, Date comparer), Date comparer)
+{
+	for (int i = 0; i < this->games.size(); i++)
+	{
+		if (canDelete(this->games.at(i), comparer))
+		{
+			this->games.erase(this->games.begin() + i);
+		}
+	}
+}
+
+void Manager::getStadiumsWhichHavedGame()
+{
+	vector<string> codes;
+	for (int i = 0; i < this->games.size(); i++)
+	{
+		if (Date::compare(Manager::today, this->games.at(i).getDateOfGame()) == Equels::firstMore)
+		{
+			for (int j = 0; j < codes.size(); j++)
+			{
+				bool founded = false;
+				if (codes.at(j).compare(this->games.at(i).getStadiumCode()) == 0)
+				{
+					founded = true;
+				}
+				if (founded == false)
+				{
+					codes.push_back(this->games.at(i).getStadiumCode());
+				}
+			}
+		}
+	}
+	for (int i = 0; i < codes.size(); i++)
+	{
+		this->find<Stadium, string>(&this->stadiums, isNeedSadium, codes.at(i));
+	}
+}
+
+void Manager::surnameOfYangerPlayer()
+{
+	if (this->players.empty())
+		return;
+	Player player = this->players.at(0);
+	cout << "\n \t Yanger player";
+	for (int i = 0; i < this->players.size(); i++)
+	{
+		if (Date::compare(player.getBirthday(), this->players.at(i).getBirthday()) == Equels::firstMore)
+		{
+			player = this->players.at(i);
+
+		}
+	}
+	cout << "\n \t Surname: " << player.getSurname();
+}
+
 template<typename T>
 void Manager::load(vector<T>* to, string filePath)
 {

@@ -29,3 +29,5 @@ bool compareGameAugust2012(Game item);
 bool canStadiumEdit(Stadium stadium, Stadium comparer);
 bool canDeletePlayer(Player item, string code);
 bool canCopyPlayer(Player item, int year);
+bool canDeleteGameByDate(Game item, Date comparer);
+bool isNeedSadium(Stadium item, string code);

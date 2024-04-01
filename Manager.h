@@ -65,6 +65,9 @@ public:
 	void changeStadiumPhone(bool canEdit(Stadium stadium, Stadium comparer));
 	void deletePlayer(bool canDelete(Player item, string code), string code);
 	void copyPlayerByYear(vector<Player>* newList, bool canCopy(Player item, int comparer), int comparer);
+	void deleteGameByDate(bool canDelete(Game item, Date comparer), Date comparer);
+	void getStadiumsWhichHavedGame();
+	void surnameOfYangerPlayer();
 	static Date today;
 private:
 	template<typename T>

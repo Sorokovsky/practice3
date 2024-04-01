@@ -158,3 +158,13 @@ bool canCopyPlayer(Player item, int year)
 {
 	return item.getBirthday().getYear() == year;
 }
+
+bool canDeleteGameByDate(Game item, Date comparer)
+{
+	return Date::compare(item.getDateOfGame(), comparer) == Equels::equel;
+}
+
+bool isNeedSadium(Stadium item, string code)
+{
+	return item.getStadiumCode().compare(code) == 0;
+}
