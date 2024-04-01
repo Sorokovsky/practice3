@@ -55,6 +55,17 @@ void Manager::add(Position item)
 	this->add<Position>(item, &this->positions, this->positionsFiles);
 }
 
+void Manager::loadAll()
+{
+	this->loadStadiumTypes();
+	this->loadStadiums();
+	this->loadTeams();
+	this->loadCoaches();
+	this->loadPlayers();
+	this->loadGames();
+	this->loadPositions();
+}
+
 void Manager::loadStadiumTypes()
 {
 	this->load<StadiumType>(&this->stadiumTypes, this->stadiumTypesFile);
@@ -165,7 +176,10 @@ void Manager::load(vector<T>* to, string filePath)
 {
 	ifstream file(filePath, ios::binary);
 	if (!file.is_open()) {
-		std::cout << "\n \t File error: " << filePath;
+		if (isDev)
+		{
+			std::cout << "\n \t File " << filePath << " undefined";
+		}
 		return;
 	}
 
@@ -185,7 +199,10 @@ void Manager::add(T item, vector<T>* to, string filePath)
 	ofstream file(filePath, ios::app);
 	if (file.is_open() == false)
 	{
-		cout << "\n \t Error file.";
+		file = ofstream(filePath, ios::binary | ios::out);
+	}
+	if (file.is_open() == false)
+	{
 		return;
 	}
 	to->push_back(item);

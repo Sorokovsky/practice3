@@ -111,5 +111,6 @@ void Stadium::print()
     cout << ", Stadium address: " << this->getStadiumAddress();
     cout << ", Stadium phoneNumber: " << this->getStadiumPhoneNumber();
     cout << ", Stadium masterhead: " << this->getMasterHead();
+    cout << ", Notes: " << this->getNotes();
     cout << " }";
 }

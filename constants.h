@@ -1,10 +1,10 @@
 #pragma once
 #include<iostream>
 using namespace std;
-extern string stadiumTypesFile("stadium-types.dat");
-extern string stadiumsFile("stadoums.dat");
-extern string positionsFile("positions.dat");
-extern string coachesFile("coaches.dat");
-extern string teamsFile("teams.dat");
-extern string playersFile("players.dat");
-extern string gamesFile("games.dat");
+string stadiumTypesFile(".\\database\\stadium-types.dat");
+string stadiumsFile(".\\database\\stadoums.dat");
+string positionsFile(".\\database\\positions.dat");
+string coachesFile(".\\database\\coaches.dat");
+string teamsFile(".\\database\\teams.dat");
+string playersFile(".\\database\\players.dat");
+string gamesFile(".\\database\\games.dat");

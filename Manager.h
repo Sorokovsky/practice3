@@ -10,6 +10,7 @@
 #include "Manager.h"
 #include "Player.h"
 #include "Position.h"
+#define isDev false
 using namespace std;
 class Manager
 {
@@ -30,6 +31,7 @@ public:
 	void add(Game item);
 	void add(Player item);
 	void add(Position item);
+	void loadAll();
 	void loadStadiumTypes();
 	void loadStadiums();
 	void loadTeams();
