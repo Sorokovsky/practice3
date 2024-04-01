@@ -1,19 +1,19 @@
 #include "Player.h"
 
 Player::Player(
-	string positionName, 
-	string requirements, 
-	int salary, 
-	string phoneNumber, 
-	string address, 
-	int age, 
-	string teamCode, 
-	string teamName, 
-	string playerCode, 
-	string surname, 
-	string name, 
-	string fatherName, 
-	time_t birthday, 
+	string positionName,
+	string requirements,
+	int salary,
+	string phoneNumber,
+	string address,
+	int age,
+	string teamCode,
+	string teamName,
+	string playerCode,
+	string surname,
+	string name,
+	string fatherName,
+	Date birthday,
 	int height, 
 	int weight, 
 	string role, 
@@ -37,7 +37,7 @@ Player::Player(
 	string surname, 
 	string name, 
 	string fatherName, 
-	time_t birthday, 
+	Date birthday, 
 	int height, 
 	int weight, 
 	string role, 
@@ -80,7 +80,7 @@ string Player::getFatherName()
 	return this->fatherName;
 }
 
-time_t Player::getBirthday()
+Date Player::getBirthday()
 {
 	return this->birthday;
 }
@@ -125,7 +125,7 @@ void Player::setFatherName(string fatherName)
 	this->fatherName = fatherName;
 }
 
-void Player::setBirthday(time_t birthday)
+void Player::setBirthday(Date birthday)
 {
 	this->birthday = birthday;
 }
@@ -152,7 +152,7 @@ void Player::setNumber(int number)
 
 void Player::print()
 {
-	cout << "\n \t Player {";
+	cout << "\n \t Player { ";
 	cout << "Coach Position Name: " << this->getPositionName();
 	cout << ", Coach Requirements: " << this->getRequirements();
 	cout << ", Coach Salary: "; this->getSalary();
@@ -165,7 +165,7 @@ void Player::print()
 	cout << ", Name: " << this->getName();
 	cout << ", Surname: " << this->getSurname();
 	cout << ", Father name: " << this->getFatherName();
-	cout << ", Birthday: " << this->getBirthday();
+	cout << ", Birthday: { Year: " << birthday.getYear() << ", Month: " << birthday.monthToString() << ", Day: " << birthday.getDay() << " }";
 	cout << ", Height: " << this->getHeight();
 	cout << ", Weight: " << this->getHeight();
 	cout << ", Role: " << this->getRole();

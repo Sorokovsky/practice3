@@ -1,4 +1,20 @@
 #include "helpers.h"
+Date enterDate()
+{
+	int year, month, day;
+	cout << "\n \t Enter year: "; cin >> year;
+	cout << "\n \t Enter number of month: "; cin >> month;
+	cout << "\n \t Enter day: "; cin >> day;
+	return Date(year, month, day);
+}
+Time enterTime()
+{
+	int hours, minutes, seconts;
+	cout << "\n \t Enter a hours: "; cin >> hours;
+	cout << "\n \t Enter a minutes: "; cin >> minutes;
+	cout << "\n \t Enter a seconts: "; cin >> seconts;
+	return Time(seconts, minutes, hours);
+}
 StadiumType enterType()
 {
 	string code, name;
@@ -48,4 +64,33 @@ Team enterTeam()
 	cout << "\n \t Enter Team code: "; cin >> code;
 	cout << "\n \t Enter Team name: "; cin >> name;
 	return Team(coach, code, name);
+}
+
+Player enterPlayer()
+{
+	Team team = enterTeam();
+	string playerCode, name, surname, fatherName, role;
+	int height, weight, number;
+	Date birthday = enterDate();
+	cout << "\n \t Enter Player code: "; cin >> playerCode;
+	cout << "\n \t Enter Name: "; cin >> name;
+	cout << "\n \t Enter Surname: "; cin >> surname;
+	cout << "\n \t Enter Father name: "; cin >> fatherName;
+	cout << "\n \t Enter Height: "; cin >> height;
+	cout << "\n \t Enter Weight: "; cin >> weight;
+	cout << "\n \t Enter  Role: "; cin >> role;
+	cout << "\n \t Enter Number: "; cin >> number;
+	return Player(team, playerCode, surname, name, fatherName, birthday, height, weight, role, number);
+}
+
+Game enterGame()
+{
+	Stadium stadium = enterStadium();
+	Team team = enterTeam();
+	Time time = enterTime();
+	Date date = enterDate();
+	string code, name;
+	cout << "\n \t Game code: "; cin >> code;
+	cout << "\n \t Game name: "; cin >> name;
+	return Game(stadium, team, code, name, date, time);
 }

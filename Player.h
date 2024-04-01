@@ -1,5 +1,6 @@
 #pragma once
 #include "Team.h"
+#include "Date.h"
 #include<iostream>
 using namespace std;
 class Player : public Team
@@ -17,7 +18,7 @@ public:
 		string surname,
 		string name,
 		string fatherName,
-		time_t birthday,
+		Date birthday,
 		int height,
 		int weight,
 		string role,
@@ -29,7 +30,7 @@ public:
 		string surname,
 		string name,
 		string fatherName,
-		time_t birthday,
+		Date birthday,
 		int height,
 		int weight,
 		string role,
@@ -40,7 +41,7 @@ public:
 	string getSurname();
 	string getName();
 	string getFatherName();
-	time_t getBirthday();
+	Date getBirthday();
 	int getHeight();
 	int getWeight();
 	string getRole();
@@ -49,7 +50,7 @@ public:
 	void setSurname(string surname);
 	void setName(string name);
 	void setFatherName(string fatherName);
-	void setBirthday(time_t birthday);
+	void setBirthday(Date birthday);
 	void setHeight(int height);
 	void setWeight(int weight);
 	void setRole(string role);
@@ -60,7 +61,7 @@ private:
 	string surname;
 	string name;
 	string fatherName;
-	time_t birthday;
+	Date birthday;
 	int height;
 	int weight;
 	string role;

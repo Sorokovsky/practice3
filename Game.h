@@ -2,6 +2,8 @@
 #include<iostream>
 #include "Stadium.h"
 #include "Team.h"
+#include "Date.h"
+#include "Time.h"
 using namespace std;
 class Game : public Stadium, public Team
 {
@@ -24,30 +26,30 @@ public:
 		string notes,
 		string gameCode,
 		string gameName,
-		time_t dateOfGame,
-		time_t timeOfGame
+		Date dateOfGame,
+		Time timeOfGame
 	);
 	Game(
 		Stadium stadium, 
 		Team team,
 		string gameCode,
 		string gameName,
-		time_t dateOfGame,
-		time_t timeOfGame
+		Date dateOfGame,
+		Time timeOfGame
 	);
 	Game();
 	string getGameCode();
 	string getGameName();
-	time_t getDateOfGame();
-	time_t getTimeOfGame();
+	Date getDateOfGame();
+	Time getTimeOfGame();
 	void setGameCode(string gameCode);
 	void setGameName(string gameName);
-	void setDateOfGame(time_t dateOfGame);
-	void setTimeOfGame(time_t timeOfGame);
+	void setDateOfGame(Date dateOfGame);
+	void setTimeOfGame(Time timeOfGame);
 	void print() override;
 private:
 	string gameCode;
 	string gameName;
-	time_t dateOfGame;
-	time_t timeOfGame;
+	Date dateOfGame;
+	Time timeOfGame;
 };

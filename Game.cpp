@@ -19,8 +19,8 @@ Game::Game(
 	string notes,
 	string gameCode,
 	string gameName,
-	time_t dateOfGame,
-	time_t timeOfGame
+	Date dateOfGame,
+	Time timeOfGame
 ) : Stadium(
 	codeOfStadiumType,
 	nameOfStadiumType,
@@ -53,8 +53,8 @@ Game::Game(
 	Team team,
 	string gameCode,
 	string gameName,
-	time_t dateOfGame,
-	time_t timeOfGame
+	Date dateOfGame,
+	Time timeOfGame
 ) : Team(team.getPositionName(), team.getRequirements(), team.getSalary(), team.getCoachPhoneNumber(), team.getCoachAddress(), team.getAge(), team.getTeamCode(), team.getTeamName()),
 	Stadium(stadium.getCodeOfStadiumType(), stadium.getNameOfStadiumType(), stadium.getStadiumCode(), stadium.getStadiumName(), stadium.getStadiumAddress(), stadium.getStadiumPhoneNumber(), stadium.getMasterHead(), stadium.getNotes())
 {
@@ -78,12 +78,12 @@ string Game::getGameName()
 	return this->gameName;
 }
 
-time_t Game::getDateOfGame()
+Date Game::getDateOfGame()
 {
 	return this->dateOfGame;
 }
 
-time_t Game::getTimeOfGame()
+Time Game::getTimeOfGame()
 {
 	return this->timeOfGame;
 }
@@ -98,12 +98,12 @@ void Game::setGameName(string gameName)
 	this->gameName = gameName;
 }
 
-void Game::setDateOfGame(time_t dateOfGame)
+void Game::setDateOfGame(Date dateOfGame)
 {
 	this->dateOfGame = dateOfGame;
 }
 
-void Game::setTimeOfGame(time_t timeOfGame)
+void Game::setTimeOfGame(Time timeOfGame)
 {
 	this->timeOfGame = timeOfGame;
 }
@@ -128,7 +128,7 @@ void Game::print()
 	cout << ", Team name: " << this->getTeamName();
 	cout << ", Game code: " << this->getGameCode();
 	cout << ", Game name: " << this->getGameName();
-	cout << ", Date of game: " << this->getDateOfGame();
-	cout << ", Time of game: " << this->getTimeOfGame();
+	cout << ", Date of game { Year:  " << dateOfGame.getYear() << ", Month: " << dateOfGame.monthToString() << ", Day: " << dateOfGame.getDay() << " }";
+	cout << ", Time of game: { Hours: " << timeOfGame.getHours() << ", Minutes: " << timeOfGame.getMinutes() << ", Seconds: " << timeOfGame.getSeconds() << " }";
 	cout << " }";
 }
