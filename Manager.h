@@ -46,9 +46,9 @@ public:
 	void showGames();
 private:
 	template<typename T>
-	void add(T item, vector<T>* list, string filePath);
+	void add(T& item, vector<T>* list, string filePath);
 	template<typename T>
-	void load(vector<T>* list, string filePath);
+	void load(vector<T>* list, const string& filePath);
 	template<typename T>
 	void showAll(vector<T>* list);
 	string stadiumTypesFile;
