@@ -13,6 +13,10 @@ public:
 	void setRequirements(string requirements);
 	void setSalary(int salary);
 	virtual void print();
+protected:
+	virtual void printHead();
+	virtual void printBody();
+	virtual void printEnd();
 private:
 	string positionName;
 	string requirements;

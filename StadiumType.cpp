@@ -32,8 +32,23 @@ void StadiumType::setNameOfStadiumType(string name)
 
 void StadiumType::print()
 {
+	this->printHead();
+	this->printBody();
+	this->printEnd();
+}
+
+void StadiumType::printHead()
+{
 	cout << "\n \t Stadium type { ";
+}
+
+void StadiumType::printBody()
+{
 	cout << "Stadium type code: " << this->getCodeOfStadiumType();
 	cout << ", Stadium type name: "; cout << this->getNameOfStadiumType();
+}
+
+void StadiumType::printEnd()
+{
 	cout << " }";
 }

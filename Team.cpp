@@ -50,14 +50,24 @@ void Team::setTeamName(string teamName)
 
 void Team::print()
 {
+	this->printHead();
+	this->printBody();
+	this->printEnd();
+}
+
+void Team::printHead()
+{
 	cout << "\n \t Team {";
-	cout << "Coach Position Name: " << this->getPositionName();
-	cout << ", Coach Requirements: " << this->getRequirements();
-	cout << ", Coach Salary: "; this->getSalary();
-	cout << ", Coach phone number: " << this->getCoachPhoneNumber();
-	cout << ", Coach address: " << this->getCoachAddress();
-	cout << ", Coach age: " << this->getAge();
+}
+
+void Team::printBody()
+{
+	Coach::printBody();
 	cout << ", Team code: " << this->getTeamCode();
 	cout << ", Team name: " << this->getTeamName();
+}
+
+void Team::printEnd()
+{
 	cout << " }";
 }

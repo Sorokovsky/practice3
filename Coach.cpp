@@ -64,12 +64,25 @@ void Coach::setAge(int age)
 
 void Coach::print()
 {
+	this->printHead();
+	this->printBody();
+	this->printEnd();
+}
+
+void Coach::printHead()
+{
 	cout << "\n \t Coach { ";
-	cout << " Position Name: " << this->getPositionName();
-	cout << ", Requirements: " << this->getRequirements();
-	cout << ", Salary: "; this->getSalary();
+}
+
+void Coach::printBody()
+{
+	Position::printBody();
 	cout << ", Coach phone number: " << this->getCoachPhoneNumber();
 	cout << ", Coach address: " << this->getCoachAddress();
 	cout << ", Coach age: " << this->getAge();
+}
+
+void Coach::printEnd()
+{
 	cout << " }";
 }

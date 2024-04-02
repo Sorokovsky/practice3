@@ -38,6 +38,10 @@ public:
 	void setMasterHead(string masterHead);
 	void setNotes(string notets);
 	void print() override;
+protected:
+	void printHead() override;
+	void printBody() override;
+	void printEnd() override;
 private:
 	string stadiumCode;
 	string stadiumName;

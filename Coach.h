@@ -26,6 +26,10 @@ public:
 	void setCoachAddress(string address);
 	void setAge(int age);
 	void print() override;
+protected:
+	void printHead() override;
+	void printBody() override;
+	void printEnd() override;
 private:
 	string coachPhoneNumber;
 	string coachAddress;

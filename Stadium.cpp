@@ -39,6 +39,7 @@ Stadium::Stadium(
 
 Stadium::Stadium() : StadiumType()
 {
+
 }
 
 string Stadium::getStadiumCode()
@@ -103,14 +104,27 @@ void Stadium::setNotes(string notets)
 
 void Stadium::print()
 {
+    this->printHead();
+    this->printBody();
+    this->printEnd();
+}
+
+void Stadium::printHead()
+{
     cout << "\n \t Stadium { ";
-    cout << "Stadium type code: " << this->getCodeOfStadiumType();
-    cout << ", Stadium type name: "; cout << this->getNameOfStadiumType();
+}
+
+void Stadium::printBody()
+{
+    StadiumType::printBody();
     cout << ", Stadium code: " << this->getStadiumCode();
     cout << ", Stadium name: " << this->getStadiumName();
     cout << ", Stadium address: " << this->getStadiumAddress();
     cout << ", Stadium phoneNumber: " << this->getStadiumPhoneNumber();
     cout << ", Stadium masterhead: " << this->getMasterHead();
-    cout << ", Notes: " << this->getNotes();
+}
+
+void Stadium::printEnd()
+{
     cout << " }";
 }

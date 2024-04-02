@@ -25,6 +25,10 @@ public:
 	void setTeamCode(string teamCode);
 	void setTeamName(string teamName);
 	void print() override;
+protected:
+	void printHead() override;
+	void printBody() override;
+	void printEnd() override;
 private:
 	string teamCode;
 	string teamName;

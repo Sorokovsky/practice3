@@ -56,6 +56,10 @@ public:
 	void setRole(string role);
 	void setNumber(int number);
 	void print() override;
+protected:
+	void printHead() override;
+	void printBody() override;
+	void printEnd() override;
 private:
 	string playerCode;
 	string surname;

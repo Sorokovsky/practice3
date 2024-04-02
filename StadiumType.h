@@ -13,6 +13,10 @@ public:
 	void setCodeOfStadiumType(string code);
 	void setNameOfStadiumType(string name);
 	virtual void print();
+protected:
+	virtual void printHead();
+	virtual void printBody();
+	virtual void printEnd();
 private:
 	string codeOfStadiumType;
 	string nameOfStadiumType;

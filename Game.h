@@ -47,6 +47,10 @@ public:
 	void setDateOfGame(Date dateOfGame);
 	void setTimeOfGame(Time timeOfGame);
 	void print() override;
+protected:
+	void printHead() override;
+	void printBody() override;
+	void printEnd() override;
 private:
 	string gameCode;
 	string gameName;

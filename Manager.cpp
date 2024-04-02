@@ -134,47 +134,40 @@ void Manager::showGames()
 }
 
 template<typename T>
-void Manager::add(T& item, vector<T>* list, string filePath)
+void Manager::add(T item, vector<T>* list, string& filePath)
 {
-	int size = 0, i = 0;
-	FILE* in;
-	if (fopen_s(&in, filePath.data(), "wb") != 0) {
+	ofstream file(filePath, ios::binary | ios::app);
+	if (!file)
+	{
 		if (IsDev)
 			cout << "\n \t file " << filePath << " not opened";
 		return;
 	}
-	else {
-		fwrite(&item, sizeof(T), 1, in);
-		list->push_back(item);
-	}
-	fclose(in);
+	list->push_back(item);
+	file.write(reinterpret_cast<char*>(&item), sizeof(item));
+	file.close();
 }
 
 template<typename T>
 void Manager::load(vector<T>* list, const string& filePath)
 {
-	FILE* in;
+	ifstream file(filePath, ios::binary | ios::in);
+	if (!file)
+	{
+		if (IsDev)
+			cout << "\n \t file " << filePath << " not opened";
+		return;
+	}
+
 	T item;
-	errno_t err = fopen_s(&in, filePath.data(), "rb");
-	if (err != 0) {
-		if (IsDev)
-			cout << "\n \t file " << filePath << " not opened";
-		return;
-	}
-
-	if (!in) {
-		if (IsDev)
-			cout << "\n \t file " << filePath << " not opened";
-		return;
-	}
-
-	while (!feof(in)) {
-		if (fread(&item, sizeof(T), 1, in) != 1) break;
+	while (file.read(reinterpret_cast<char*>(&item), sizeof(item)))
+	{
 		list->push_back(item);
 	}
 
-	fclose(in);
+	file.close();
 }
+
 
 
 template<typename T>

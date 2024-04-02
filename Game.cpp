@@ -110,25 +110,26 @@ void Game::setTimeOfGame(Time timeOfGame)
 
 void Game::print()
 {
+	this->printHead();
+	this->printBody();
+	this->printEnd();
+}
+
+void Game::printHead()
+{
 	cout << "\n \t Game { ";
-	cout << "Stadium type code: " << this->getCodeOfStadiumType();
-	cout << ", Stadium type name: "; cout << this->getNameOfStadiumType();
-	cout << ", Stadium code: " << this->getStadiumCode();
-	cout << ", Stadium name: " << this->getStadiumName();
-	cout << ", Stadium address: " << this->getStadiumAddress();
-	cout << ", Stadium phoneNumber: " << this->getStadiumPhoneNumber();
-	cout << ", Stadium masterhead: " << this->getMasterHead();
-	cout << "Coach Position Name: " << this->getPositionName();
-	cout << ", Coach Requirements: " << this->getRequirements();
-	cout << ", Coach Salary: "; this->getSalary();
-	cout << ", Coach phone number: " << this->getCoachPhoneNumber();
-	cout << ", Coach address: " << this->getCoachAddress();
-	cout << ", Coach age: " << this->getAge();
-	cout << ", Team code: " << this->getTeamCode();
-	cout << ", Team name: " << this->getTeamName();
+}
+
+void Game::printBody()
+{
+	Team::printBody();
 	cout << ", Game code: " << this->getGameCode();
 	cout << ", Game name: " << this->getGameName();
 	cout << ", Date of game { Year:  " << dateOfGame.getYear() << ", Month: " << dateOfGame.monthToString() << ", Day: " << dateOfGame.getDay() << " }";
 	cout << ", Time of game: { Hours: " << timeOfGame.getHours() << ", Minutes: " << timeOfGame.getMinutes() << ", Seconds: " << timeOfGame.getSeconds() << " }";
+}
+
+void Game::printEnd()
+{
 	cout << " }";
 }
