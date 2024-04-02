@@ -152,6 +152,7 @@ void Manager::add(T item, vector<T>* list, string& filePath)
 template<typename T>
 void Manager::load(vector<T>* list, const string& filePath)
 {
+	list->clear();
 	ifstream file(filePath, ios::binary | ios::in);
 	if (!file)
 	{
@@ -176,6 +177,7 @@ void Manager::showAll(vector<T>* list)
 {
 	for (int i = 0; i < list->size(); i++)
 	{
+		cout << "\n \t #" << i + 1;
 		list->at(i).print();
 	}
 }

@@ -44,11 +44,11 @@ void StadiumType::printHead()
 
 void StadiumType::printBody()
 {
-	cout << "Stadium type code: " << this->getCodeOfStadiumType();
-	cout << ", Stadium type name: "; cout << this->getNameOfStadiumType();
+	cout << "\n \t Stadium type code: " << this->getCodeOfStadiumType();
+	cout << ", \n \t Stadium type name: "; cout << this->getNameOfStadiumType();
 }
 
 void StadiumType::printEnd()
 {
-	cout << " }";
+	cout << "\n \t }";
 }

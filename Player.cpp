@@ -165,18 +165,18 @@ void Player::printHead()
 void Player::printBody()
 {
 	Team::printBody();
-	cout << ", Player code: " << this->getPlayerCode();
-	cout << ", Name: " << this->getName();
-	cout << ", Surname: " << this->getSurname();
-	cout << ", Father name: " << this->getFatherName();
-	cout << ", Birthday: { Year: " << birthday.getYear() << ", Month: " << birthday.monthToString() << ", Day: " << birthday.getDay() << " }";
-	cout << ", Height: " << this->getHeight();
-	cout << ", Weight: " << this->getHeight();
-	cout << ", Role: " << this->getRole();
-	cout << ", Number: " << this->getNumber();
+	cout << ",\n \t Player code: " << this->getPlayerCode();
+	cout << ",\n \t Name: " << this->getName();
+	cout << ",\n \t Surname: " << this->getSurname();
+	cout << ",\n \t Father name: " << this->getFatherName();
+	cout << ",\n \t Birthday: { Year: " << birthday.getYear() << ", Month: " << birthday.monthToString() << ", Day: " << birthday.getDay() << " }";
+	cout << ",\n \t Height: " << this->getHeight();
+	cout << ",\n \t Weight: " << this->getHeight();
+	cout << ",\n \t Role: " << this->getRole();
+	cout << ",\n \t Number: " << this->getNumber();
 }
 
 void Player::printEnd()
 {
-	cout << " }";
+	cout << "\n \t }";
 }

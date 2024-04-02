@@ -124,13 +124,13 @@ void Game::printBody()
 {
 	Team::printBody();
 	Stadium::printBody();
-	cout << ", Game code: " << this->getGameCode();
-	cout << ", Game name: " << this->getGameName();
-	cout << ", Date of game { Year:  " << dateOfGame.getYear() << ", Month: " << dateOfGame.monthToString() << ", Day: " << dateOfGame.getDay() << " }";
-	cout << ", Time of game: { Hours: " << timeOfGame.getHours() << ", Minutes: " << timeOfGame.getMinutes() << ", Seconds: " << timeOfGame.getSeconds() << " }";
+	cout << ",\n \t Game code: " << this->getGameCode();
+	cout << ",\n \t Game name: " << this->getGameName();
+	cout << ",\n \t Date of game { Year:  " << dateOfGame.getYear() << ", Month: " << dateOfGame.monthToString() << ", Day: " << dateOfGame.getDay() << " }";
+	cout << ",\n \t Time of game: { Hours: " << timeOfGame.getHours() << ", Minutes: " << timeOfGame.getMinutes() << ", Seconds: " << timeOfGame.getSeconds() << " }";
 }
 
 void Game::printEnd()
 {
-	cout << " }";
+	cout << "\n \t }";
 }

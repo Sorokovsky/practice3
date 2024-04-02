@@ -117,14 +117,14 @@ void Stadium::printHead()
 void Stadium::printBody()
 {
     StadiumType::printBody();
-    cout << ", Stadium code: " << this->getStadiumCode();
-    cout << ", Stadium name: " << this->getStadiumName();
-    cout << ", Stadium address: " << this->getStadiumAddress();
-    cout << ", Stadium phoneNumber: " << this->getStadiumPhoneNumber();
-    cout << ", Stadium masterhead: " << this->getMasterHead();
+    cout << ",\n \t Stadium code: " << this->getStadiumCode();
+    cout << ",\n \t Stadium name: " << this->getStadiumName();
+    cout << ",\n \t Stadium address: " << this->getStadiumAddress();
+    cout << ",\n \t Stadium phoneNumber: " << this->getStadiumPhoneNumber();
+    cout << ",\n \t Stadium masterhead: " << this->getMasterHead();
 }
 
 void Stadium::printEnd()
 {
-    cout << " }";
+    cout << "\n \t }";
 }

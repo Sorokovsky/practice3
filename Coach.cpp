@@ -77,12 +77,12 @@ void Coach::printHead()
 void Coach::printBody()
 {
 	Position::printBody();
-	cout << ", Coach phone number: " << this->getCoachPhoneNumber();
-	cout << ", Coach address: " << this->getCoachAddress();
-	cout << ", Coach age: " << this->getAge();
+	cout << ",\n \t Coach phone number: " << this->getCoachPhoneNumber();
+	cout << ",\n \t Coach address: " << this->getCoachAddress();
+	cout << ",\n \t Coach age: " << this->getAge();
 }
 
 void Coach::printEnd()
 {
-	cout << " }";
+	cout << "\n \t }";
 }

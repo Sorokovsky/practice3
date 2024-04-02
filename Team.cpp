@@ -63,11 +63,11 @@ void Team::printHead()
 void Team::printBody()
 {
 	Coach::printBody();
-	cout << ", Team code: " << this->getTeamCode();
-	cout << ", Team name: " << this->getTeamName();
+	cout << ",\n \t Team code: " << this->getTeamCode();
+	cout << ",\n \t Team name: " << this->getTeamName();
 }
 
 void Team::printEnd()
 {
-	cout << " }";
+	cout << "\n \t }";
 }

@@ -55,12 +55,12 @@ void Position::printHead()
 
 void Position::printBody()
 {
-	cout << " Position Name: " << this->getPositionName();
-	cout << ", Position Requirements: " << this->getRequirements();
-	cout << ", Position Salary: " << this->getSalary();
+	cout << "\n \t Position Name: " << this->getPositionName();
+	cout << ",\n \t Position Requirements: " << this->getRequirements();
+	cout << ",\n \t Position Salary: " << this->getSalary();
 }
 
 void Position::printEnd()
 {
-	cout << " }";
+	cout << "\n \t }";
 }
