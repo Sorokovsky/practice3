@@ -17,9 +17,39 @@ Manager::Manager(
 	this->gamesFile = gamesFile;
 }
 
-void Manager::addStadiumType(StadiumType item)
+void Manager::add(StadiumType item)
 {
 	this->add<StadiumType>(item, &this->stadiumTypes, this->stadiumTypesFile);
+}
+
+void Manager::add(Stadium item)
+{
+	this->add<Stadium>(item, &this->stadiums, this->stadiumsFile);
+}
+
+void Manager::add(Position item)
+{
+	this->add<Position>(item, &this->positions, this->positionsFile);
+}
+
+void Manager::add(Coach item)
+{
+	this->add<Coach>(item, &this->coaches, this->coachesFile);
+}
+
+void Manager::add(Team item)
+{
+	this->add<Team>(item, &this->teams, this->teamsFile);
+}
+
+void Manager::add(Player item)
+{
+	this->add<Player>(item, &this->players, this->playersFile);
+}
+
+void Manager::add(Game item)
+{
+	this->add<Game>(item, &this->games, this->gamesFile);
 }
 
 void Manager::loadStadiumTypes()
@@ -27,9 +57,80 @@ void Manager::loadStadiumTypes()
 	this->load<StadiumType>(&this->stadiumTypes, this->stadiumTypesFile);
 }
 
+void Manager::loadStadiums()
+{
+	this->load<Stadium>(&this->stadiums, this->stadiumsFile);
+}
+
+void Manager::loadPositions()
+{
+	this->load<Position>(&this->positions, this->positionsFile);
+}
+
+void Manager::loadCoaches()
+{
+	this->load<Coach>(&this->coaches, this->coachesFile);
+}
+
+void Manager::loadTeams()
+{
+	this->load<Team>(&this->teams, this->teamsFile);
+}
+
+void Manager::loadPlayers()
+{
+	this->load<Player>(&this->players, this->playersFile);
+}
+
+void Manager::loadGames()
+{
+	this->load<Game>(&this->games, this->gamesFile);
+}
+
+void Manager::loadAll()
+{
+	this->loadStadiumTypes();
+	this->loadStadiums();
+	this->loadPositions();
+	this->loadCoaches();
+	this->loadTeams();
+	this->loadPlayers();
+	this->loadGames();
+}
+
 void Manager::showStadiumTypes()
 {
 	this->showAll<StadiumType>(&this->stadiumTypes);
+}
+
+void Manager::showStadiums()
+{
+	this->showAll<Stadium>(&this->stadiums);
+}
+
+void Manager::showPositions()
+{
+	this->showAll<Position>(&this->positions);
+}
+
+void Manager::showCoaches()
+{
+	this->showAll<Coach>(&this->coaches);
+}
+
+void Manager::showTeams()
+{
+	this->showAll<Team>(&this->teams);
+}
+
+void Manager::showPlayers()
+{
+	this->showAll<Player>(&this->players);
+}
+
+void Manager::showGames()
+{
+	this->showAll<Game>(&this->games);
 }
 
 template<typename T>
@@ -50,7 +151,7 @@ void Manager::add(T item, vector<T>* list, string filePath)
 template<typename T>
 void Manager::load(vector<T>* list, string filePath)
 {
-	ifstream file = ifstream(filePath, ios::binary | ios::in);
+	ifstream file = ifstream(filePath, ios::in);
 	if (file.is_open() == false)
 	{
 		if (IsDev)
@@ -58,8 +159,10 @@ void Manager::load(vector<T>* list, string filePath)
 		return;
 	}
 	T item;
-	while (file.read((char*)&item, sizeof(T)))
+	while (true)
 	{
+		file.read((char*)&item, sizeof(T));
+		if (file.eof()) break;
 		list->push_back(item);
 	}
 	file.close();

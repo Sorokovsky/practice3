@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 	Manager manager = Manager(stadiumTypesFile, stadiumsFile, positionsFile, coachesFile, teamsFile, playersFile, gamesFile);
-	manager.loadStadiumTypes();
+	manager.loadAll();
 	while (true)
 	{
 		int operation = chooseOperation();
@@ -21,7 +21,7 @@ int main()
 		case 1:
 		{
 			StadiumType type = enterType();
-			manager.addStadiumType(type);
+			manager.add(type);
 			break;
 		}
 		case 2:
