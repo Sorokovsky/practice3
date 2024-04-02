@@ -123,6 +123,7 @@ void Game::printHead()
 void Game::printBody()
 {
 	Team::printBody();
+	Stadium::printBody();
 	cout << ", Game code: " << this->getGameCode();
 	cout << ", Game name: " << this->getGameName();
 	cout << ", Date of game { Year:  " << dateOfGame.getYear() << ", Month: " << dateOfGame.monthToString() << ", Day: " << dateOfGame.getDay() << " }";
