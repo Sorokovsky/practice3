@@ -15,6 +15,7 @@ Manager::Manager(
 	this->teamsFile = teamsFile;
 	this->playersFile = playersFile;
 	this->gamesFile = gamesFile;
+	this->loadAll();
 }
 
 void Manager::add(StadiumType item)

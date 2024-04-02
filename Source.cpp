@@ -7,7 +7,6 @@ using namespace std;
 int main()
 {
 	Manager manager = Manager(stadiumTypesFile, stadiumsFile, positionsFile, coachesFile, teamsFile, playersFile, gamesFile);
-	manager.loadAll();
 	while (true)
 	{
 		int operation = chooseOperation();
