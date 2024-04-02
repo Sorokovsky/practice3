@@ -18,8 +18,8 @@ Time enterTime()
 StadiumType enterType()
 {
 	string code, name;
-	cout << "\n \t Enter a code: "; cin >> code;
-	cout << "\n \t Enter a name: "; cin >> name;
+	cout << "\n \t Enter a stadium type code: "; cin >> code;
+	cout << "\n \t Enter a stadium type name: "; cin >> name;
 	return StadiumType(code, name);
 }
 
@@ -27,8 +27,8 @@ Stadium enterStadium()
 {
 	StadiumType type = enterType();
 	string code, address, name, phoneNumber, masterHead, notes;
-	cout << "\n \t Enter stadium type code: "; cin >> code;
-	cout << "\n \t Enter stadium type name: "; cin >> name;
+	cout << "\n \t Enter stadium code: "; cin >> code;
+	cout << "\n \t Enter stadium name: "; cin >> name;
 	cout << "\n \t Enter stadium address: "; cin >> address;
 	cout << "\n \t Enter stadium phoneNumber: "; cin >> phoneNumber;
 	cout << "\n \t Enter stadium masterhead: "; cin >> masterHead;
@@ -42,7 +42,7 @@ Position enterPosition()
 	int salary;
 	cout << "\n \t Enter position Name: "; cin >> name;
 	cout << "\n \t Enter requirements: "; cin >> requirements;
-	cout << "\n \t Enter alary: "; cin >> salary;
+	cout << "\n \t Enter position salary: "; cin >> salary;
 	return Position(name, requirements, salary);
 }
 
@@ -73,13 +73,13 @@ Player enterPlayer()
 	int height, weight, number;
 	Date birthday = enterDate();
 	cout << "\n \t Enter Player code: "; cin >> playerCode;
-	cout << "\n \t Enter Name: "; cin >> name;
-	cout << "\n \t Enter Surname: "; cin >> surname;
-	cout << "\n \t Enter Father name: "; cin >> fatherName;
-	cout << "\n \t Enter Height: "; cin >> height;
-	cout << "\n \t Enter Weight: "; cin >> weight;
-	cout << "\n \t Enter  Role: "; cin >> role;
-	cout << "\n \t Enter Number: "; cin >> number;
+	cout << "\n \t Enter Player Name: "; cin >> name;
+	cout << "\n \t Enter Player Surname: "; cin >> surname;
+	cout << "\n \t Enter Player Father name: "; cin >> fatherName;
+	cout << "\n \t Enter Player Height: "; cin >> height;
+	cout << "\n \t Enter Player Weight: "; cin >> weight;
+	cout << "\n \t Enter Player Role: "; cin >> role;
+	cout << "\n \t Enter Player Number: "; cin >> number;
 	return Player(team, playerCode, surname, name, fatherName, birthday, height, weight, role, number);
 }
 

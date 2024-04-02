@@ -57,7 +57,7 @@ void Position::printBody()
 {
 	cout << " Position Name: " << this->getPositionName();
 	cout << ", Position Requirements: " << this->getRequirements();
-	cout << ", Position Salary: "; this->getSalary();
+	cout << ", Position Salary: " << this->getSalary();
 }
 
 void Position::printEnd()
