@@ -8,6 +8,7 @@
 #include "Team.h"
 #include "Player.h"
 #include "Game.h"
+#define IsDev true
 using namespace std;
 class Manager
 {
@@ -20,17 +21,17 @@ public:
 		string teamsFile,
 		string playersFile,
 		string gamesFile
-	)
-	{
-		this->stadiumTypesFile = stadiumTypesFile;
-		this->stadiumsFile = stadiumsFile;
-		this->positionsFile = positionsFile;
-		this->coachesFile = coachesFile;
-		this->teamsFile = teamsFile;
-		this->playersFile = playersFile;
-		this->gamesFile = gamesFile;
-	}
+	);
+	void addStadiumType(StadiumType item);
+	void loadStadiumTypes();
+	void showStadiumTypes();
 private:
+	template<typename T>
+	void add(T item, vector<T>* list, string filePath);
+	template<typename T>
+	void load(vector<T>* list, string filePath);
+	template<typename T>
+	void showAll(vector<T>* list);
 	string stadiumTypesFile;
 	string stadiumsFile;
 	string positionsFile;

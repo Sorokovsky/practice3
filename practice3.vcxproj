@@ -37,6 +37,7 @@
   <ItemGroup>
     <ClCompile Include="Coach.cpp" />
     <ClCompile Include="Date.cpp" />
+    <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="Player.cpp" />
