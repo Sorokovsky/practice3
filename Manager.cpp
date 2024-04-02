@@ -134,6 +134,48 @@ void Manager::showGames()
 	this->showAll<Game>(&this->games);
 }
 
+template<typename C>
+vector<StadiumType> Manager::findStadiumTypes(bool isNeed(StadiumType item, C comparer), C comparer)
+{
+	return this->find<StadiumType, C>(&this->stadiumTypes, isNeed, comparer);
+}
+
+template<typename C>
+inline vector<Stadium> Manager::findStadiums(bool isNeed(Stadium item, C comparer), C comparer)
+{
+	return this->find<Stadium, C>(&this->stadiums, isNeed, comparer);
+}
+
+template<typename C>
+vector<Position> Manager::findPositions(bool isNeed(Position item, C comparer), C comparer)
+{
+	return this->find<Position, C>(&this->positions, isNeed, comparer);
+}
+
+template<typename C>
+vector<Coach> Manager::findCoaches(bool isNeed(Coach item, C comparer), C comparer)
+{
+	return this->find<Coach, C>(&this->coaches, isNeed, comparer);
+}
+
+template<typename C>
+vector<Team> Manager::findTeams(bool isNeed(Team item, C comparer), C comparer)
+{
+	return this->find<Team, C>(&this->teams, isNeed, comparer);
+}
+
+template<typename C>
+vector<Player> Manager::findPlayers(bool isNeed(Player item, C comparer), C comparer)
+{
+	return this->find<Player, C>(&this->players, isNeed, comparer);
+}
+
+template<typename C>
+vector<Game> Manager::findCoaches(bool isNeed(Game item, C comparer), C comparer)
+{
+	return this->find<Game, C>(&this->games, isNeed, comparer);
+}
+
 template<typename T>
 void Manager::add(T item, vector<T>* list, string& filePath)
 {
@@ -180,4 +222,18 @@ void Manager::showAll(vector<T>* list)
 		cout << "\n \t #" << i + 1;
 		list->at(i).print();
 	}
+}
+
+template<typename T, typename C>
+vector<T> Manager::find(vector<T>* list, bool isNeed(T item, C comparer), C comparer)
+{
+	vector<T> founded;
+	for (int i = 0; i < list->size(); i++)
+	{
+		if (isNeed(list->at(i), comparer))
+		{
+			founded.push_back(list->at(i));
+		}
+	}
+	return founded;
 }

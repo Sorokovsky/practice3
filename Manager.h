@@ -44,6 +44,20 @@ public:
 	void showTeams();
 	void showPlayers();
 	void showGames();
+	template<typename C>
+	vector<StadiumType> findStadiumTypes(bool isNeed(StadiumType item, C comparer), C comparer);
+	template<typename C>
+	vector<Stadium> findStadiums(bool isNeed(Stadium item, C comparer), C comparer);
+	template<typename C>
+	vector<Position> findPositions(bool isNeed(Position item, C comparer), C comparer);
+	template<typename C>
+	vector<Coach> findCoaches(bool isNeed(Coach item, C comparer), C comparer);
+	template<typename C>
+	vector<Team> findTeams(bool isNeed(Team item, C comparer), C comparer);
+	template<typename C>
+	vector<Player> findPlayers(bool isNeed(Player item, C comparer), C comparer);
+	template<typename C>
+	vector<Game> findCoaches(bool isNeed(Game item, C comparer), C comparer);
 private:
 	template<typename T>
 	void add(T item, vector<T>* list, string& filePath);
@@ -51,6 +65,8 @@ private:
 	void load(vector<T>* list, const string& filePath);
 	template<typename T>
 	void showAll(vector<T>* list);
+	template<typename T, typename C>
+	vector<T> find(vector<T>* list, bool isNeed(T item, C comparer), C comparer);
 	string stadiumTypesFile;
 	string stadiumsFile;
 	string positionsFile;
