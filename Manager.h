@@ -46,19 +46,19 @@ public:
 	void showPlayers();
 	void showGames();
 	template<typename C>
-	vector<StadiumType> findStadiumTypes(bool isNeed(StadiumType item, C comparer), C comparer);
+	void findStadiumTypes(vector<StadiumType>* founded, bool isNeed(StadiumType item, C comparer), C comparer);
 	template<typename C>
-	vector<Stadium> findStadiums(bool isNeed(Stadium item, C comparer), C comparer);
+	void findStadiums(vector<Stadium>* founded, bool isNeed(Stadium item, C comparer), C comparer);
 	template<typename C>
-	vector<Position> findPositions(bool isNeed(Position item, C comparer), C comparer);
+	void findPositions(vector<Position>* founded, bool isNeed(Position item, C comparer), C comparer);
 	template<typename C>
-	vector<Coach> findCoaches(bool isNeed(Coach item, C comparer), C comparer);
+	void findCoaches(vector<Coach>* founded, bool isNeed(Coach item, C comparer), C comparer);
 	template<typename C>
-	vector<Team> findTeams(bool isNeed(Team item, C comparer), C comparer);
+	void findTeams(vector<Team>* founded, bool isNeed(Team item, C comparer), C comparer);
 	template<typename C>
-	vector<Player> findPlayers(bool isNeed(Player item, C comparer), C comparer);
+	void findPlayers(vector<Player>* founded, bool isNeed(Player item, C comparer), C comparer);
 	template<typename C>
-	vector<Game> findCoaches(bool isNeed(Game item, C comparer), C comparer);
+	void findGames(vector<Game>* founded, bool isNeed(Game item, C comparer), C comparer);
 	void sortStadiumTypes(bool canSwap(StadiumType i1, StadiumType i2));
 	void sortStadiums(bool canSwap(Stadium i1, Stadium i2));
 	void sortPositions(bool canSwap(Position i1, Position i2));
@@ -89,7 +89,7 @@ private:
 	template<typename T>
 	void showAll(vector<T>* list);
 	template<typename T, typename C>
-	vector<T> find(vector<T>* list, bool isNeed(T item, C comparer), C comparer);
+	void find(vector<T>* founded, vector<T>* list, bool isNeed(T item, C comparer), C comparer);
 	template<typename T>
 	void sort(vector<T>* list, bool canSwap(T i1, T i2));
 	template<typename T>

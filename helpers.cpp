@@ -114,7 +114,8 @@ int chooseOperation()
 	cout << "\n \t 12-Show players.";
 	cout << "\n \t 13-Add game.";
 	cout << "\n \t 14-Show games.";
-	cout << "\n \t 15-Show sorted players by DESC birthday";
+	cout << "\n \t 15-Show sorted players by DESC birthday.";
+	cout << "\n \t 16-Get games in July.";
 	cout << "\n \t >> ";
 	cin >> operation;
 	return operation;
@@ -123,4 +124,9 @@ int chooseOperation()
 bool orderPlayersByDate(Player i1, Player i2)
 {
 	return Date::compare(i1.getBirthday(), i2.getBirthday()) == Equels::firstMore;
+}
+
+bool gamesInMonth(Game item, int comparer)
+{
+	return item.getDateOfGame().getMonth() == comparer;
 }

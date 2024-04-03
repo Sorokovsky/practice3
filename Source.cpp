@@ -107,6 +107,17 @@ int main()
 			manager.showPlayers();
 			break;
 		}
+		case 16:
+		{
+			int month = 7;
+			vector<Game> gamesInJuly; 
+			manager.findGames(&gamesInJuly, gamesInMonth, month);
+			cout << "\n \t Games in July";
+			for (int i = 0; i < gamesInJuly.size(); i++)
+			{
+				gamesInJuly.at(i).print();
+			}
+		}
 		default:
 		{
 			cout << "\n \t Try again.";

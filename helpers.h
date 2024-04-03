@@ -21,3 +21,4 @@ Player enterPlayer();
 Game enterGame();
 int chooseOperation();
 bool orderPlayersByDate(Player i1, Player i2);
+bool gamesInMonth(Game item, int comparer);
