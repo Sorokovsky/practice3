@@ -31,7 +31,7 @@ void Date::setDay(int day)
 {
 	if (day < 1)
 		day = 1;
-	this->month = month;
+	this->day = day;
 }
 
 int Date::getYear()

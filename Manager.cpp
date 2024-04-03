@@ -247,13 +247,14 @@ void Manager::sort(vector<T>* list, bool canSwap(T i1, T i2))
 template<typename T>
 void Manager::save(vector<T>* list, string& filePath)
 {
-	ofstream file(filePath, ios::binary | ios::trunc | ios::app);
+	ofstream file(filePath, ios::binary | ios::app);
 	if (!file)
 	{
 		if (IsDev)
 			cout << "\n \t file " << filePath << " not opened";
 		return;
 	}
+	file.clear();
 	for (int i = 0; i < list->size(); i++)
 	{
 		T item = list->at(i);

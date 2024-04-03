@@ -101,6 +101,12 @@ int main()
 			manager.showGames();
 			break;
 		}
+		case 15:
+		{
+			manager.sortPlayers(orderPlayersByDate);
+			manager.showPlayers();
+			break;
+		}
 		default:
 		{
 			cout << "\n \t Try again.";
