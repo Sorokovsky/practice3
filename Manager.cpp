@@ -244,37 +244,156 @@ void Manager::sort(vector<T>* list, bool canSwap(T i1, T i2))
 	std::sort(list->begin(), list->end(), canSwap);
 }
 
+template<typename T>
+void Manager::save(vector<T>* list, string& filePath)
+{
+	ofstream file(filePath, ios::binary | ios::trunc | ios::app);
+	if (!file)
+	{
+		if (IsDev)
+			cout << "\n \t file " << filePath << " not opened";
+		return;
+	}
+	for (int i = 0; i < list->size(); i++)
+	{
+		T item = list->at(i);
+		file.write(reinterpret_cast<char*>(&item), sizeof(item));
+	}
+	file.close();
+}
+
+template<typename T>
+void Manager::remove(vector<T>* list, bool canRemove(T item))
+{
+	list->erase(std::remove_if(list->begin(), list->end(), canRemove), list->end());
+}
+
 void Manager::sortStadiumTypes(bool canSwap(StadiumType i1, StadiumType i2))
 {
 	this->sort(&this->stadiumTypes, canSwap);
+	this->saveStadiumTypes();
 }
 
 void Manager::sortStadiums(bool canSwap(Stadium i1, Stadium i2))
 {
 	this->sort(&this->stadiums, canSwap);
+	this->saveStadiums();
 }
 
 void Manager::sortPositions(bool canSwap(Position i1, Position i2))
 {
 	this->sort(&this->positions, canSwap);
+	this->savePositions();
 }
 
 void Manager::sortCoaches(bool canSwap(Coach i1, Coach i2))
 {
 	this->sort(&this->coaches, canSwap);
+	this->savePositions();
 }
 
 void Manager::sortTeams(bool canSwap(Team i1, Team i2))
 {
 	this->sort(&this->teams, canSwap);
+	this->saveTeams();
 }
 
 void Manager::sortPlayers(bool canSwap(Player i1, Player i2))
 {
 	this->sort(&this->players, canSwap);
+	this->savePlayers();
 }
 
 void Manager::sortGames(bool canSwap(Game i1, Game i2))
 {
 	this->sort(&this->games, canSwap);
+	this->saveGames();
+}
+
+void Manager::saveStadiumTypes()
+{
+	this->save<StadiumType>(&this->stadiumTypes, this->stadiumTypesFile);
+}
+
+void Manager::saveStadiums()
+{
+	this->save<Stadium>(&this->stadiums, this->stadiumsFile);
+}
+
+void Manager::savePositions()
+{
+	this->save<Position>(&this->positions, this->positionsFile);
+}
+
+void Manager::saveCoaches()
+{
+	this->save<Coach>(&this->coaches, this->coachesFile);
+}
+
+void Manager::saveTeams()
+{
+	this->save<Team>(&this->teams, this->teamsFile);
+}
+
+void Manager::savePlayers()
+{
+	this->save<Player>(&this->players, this->playersFile);
+}
+
+void Manager::saveGames()
+{
+	this->save<Game>(&this->games, this->gamesFile);
+}
+
+void Manager::saveAll()
+{
+	this->saveStadiumTypes();
+	this->saveStadiums();
+	this->savePositions();
+	this->saveCoaches();
+	this->saveTeams();
+	this->savePlayers();
+	this->saveGames();
+}
+
+void Manager::removeStadiumType(bool canRemove(StadiumType item))
+{
+	this->remove<StadiumType>(&this->stadiumTypes, canRemove);
+	this->saveStadiumTypes();
+}
+
+void Manager::removeStadium(bool canRemove(Stadium item))
+{
+	this->remove<Stadium>(&this->stadiums, canRemove);
+	this->saveStadiums();
+}
+
+void Manager::removePosition(bool canRemove(Position item))
+{
+	this->remove<Position>(&this->positions, canRemove);
+	this->savePositions();
+}
+
+void Manager::removeCoach(bool canRemove(Coach item))
+{
+	this->remove<Coach>(&this->coaches, canRemove);
+	this->saveCoaches();
+}
+
+void Manager::removeTeam(bool canRemove(Team item))
+{
+	this->remove<Team>(&this->teams, canRemove);
+	this->saveTeams();
+}
+
+void Manager::removePlayer(bool canRemove(Player item))
+{
+	this->remove<Player>(&this->players, canRemove);
+	this->savePlayers();
+}
+
+void Manager::removeGame(bool canRemove(Game item))
+{
+	this->remove<Game>(&this->games, canRemove);
+	this->saveGames();
 }

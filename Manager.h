@@ -66,6 +66,21 @@ public:
 	void sortTeams(bool canSwap(Team i1, Team i2));
 	void sortPlayers(bool canSwap(Player i1, Player i2));
 	void sortGames(bool canSwap(Game i1, Game i2));
+	void saveStadiumTypes();
+	void saveStadiums();
+	void savePositions();
+	void saveCoaches();
+	void saveTeams();
+	void savePlayers();
+	void saveGames();
+	void saveAll();
+	void removeStadiumType(bool canRemove(StadiumType item));
+	void removeStadium(bool canRemove(Stadium item));
+	void removePosition(bool canRemove(Position item));
+	void removeCoach(bool canRemove(Coach item));
+	void removeTeam(bool canRemove(Team item));
+	void removePlayer(bool canRemove(Player item));
+	void removeGame(bool canRemove(Game item));
 private:
 	template<typename T>
 	void add(T item, vector<T>* list, string& filePath);
@@ -77,6 +92,10 @@ private:
 	vector<T> find(vector<T>* list, bool isNeed(T item, C comparer), C comparer);
 	template<typename T>
 	void sort(vector<T>* list, bool canSwap(T i1, T i2));
+	template<typename T>
+	void save(vector<T>* list, string& filePath);
+	template<typename T>
+	void remove(vector<T>* list, bool canRemove(T item));
 	string stadiumTypesFile;
 	string stadiumsFile;
 	string positionsFile;
