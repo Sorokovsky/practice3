@@ -237,3 +237,44 @@ vector<T> Manager::find(vector<T>* list, bool isNeed(T item, C comparer), C comp
 	}
 	return founded;
 }
+
+template<typename T>
+void Manager::sort(vector<T>* list, bool canSwap(T i1, T i2))
+{
+	std::sort(list->begin(), list->end(), canSwap);
+}
+
+void Manager::sortStadiumTypes(bool canSwap(StadiumType i1, StadiumType i2))
+{
+	this->sort(&this->stadiumTypes, canSwap);
+}
+
+void Manager::sortStadiums(bool canSwap(Stadium i1, Stadium i2))
+{
+	this->sort(&this->stadiums, canSwap);
+}
+
+void Manager::sortPositions(bool canSwap(Position i1, Position i2))
+{
+	this->sort(&this->positions, canSwap);
+}
+
+void Manager::sortCoaches(bool canSwap(Coach i1, Coach i2))
+{
+	this->sort(&this->coaches, canSwap);
+}
+
+void Manager::sortTeams(bool canSwap(Team i1, Team i2))
+{
+	this->sort(&this->teams, canSwap);
+}
+
+void Manager::sortPlayers(bool canSwap(Player i1, Player i2))
+{
+	this->sort(&this->players, canSwap);
+}
+
+void Manager::sortGames(bool canSwap(Game i1, Game i2))
+{
+	this->sort(&this->games, canSwap);
+}

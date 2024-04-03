@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<vector>
+#include<algorithm>
 #include "StadiumType.h"
 #include "Stadium.h"
 #include "Position.h"
@@ -58,6 +59,13 @@ public:
 	vector<Player> findPlayers(bool isNeed(Player item, C comparer), C comparer);
 	template<typename C>
 	vector<Game> findCoaches(bool isNeed(Game item, C comparer), C comparer);
+	void sortStadiumTypes(bool canSwap(StadiumType i1, StadiumType i2));
+	void sortStadiums(bool canSwap(Stadium i1, Stadium i2));
+	void sortPositions(bool canSwap(Position i1, Position i2));
+	void sortCoaches(bool canSwap(Coach i1, Coach i2));
+	void sortTeams(bool canSwap(Team i1, Team i2));
+	void sortPlayers(bool canSwap(Player i1, Player i2));
+	void sortGames(bool canSwap(Game i1, Game i2));
 private:
 	template<typename T>
 	void add(T item, vector<T>* list, string& filePath);
@@ -67,6 +75,8 @@ private:
 	void showAll(vector<T>* list);
 	template<typename T, typename C>
 	vector<T> find(vector<T>* list, bool isNeed(T item, C comparer), C comparer);
+	template<typename T>
+	void sort(vector<T>* list, bool canSwap(T i1, T i2));
 	string stadiumTypesFile;
 	string stadiumsFile;
 	string positionsFile;
