@@ -6,6 +6,7 @@
 using namespace std;
 int main()
 {
+	vector<Game> gamesInJuly;
 	Manager manager = Manager(stadiumTypesFile, stadiumsFile, positionsFile, coachesFile, teamsFile, playersFile, gamesFile);
 	while (true)
 	{
@@ -110,13 +111,13 @@ int main()
 		case 16:
 		{
 			int month = 7;
-			vector<Game> gamesInJuly; 
-			manager.findGames(&gamesInJuly, gamesInMonth, month);
+			manager.findGames<int>(&gamesInJuly, gamesInMonth, month);
 			cout << "\n \t Games in July";
 			for (int i = 0; i < gamesInJuly.size(); i++)
 			{
 				gamesInJuly.at(i).print();
 			}
+			break;
 		}
 		default:
 		{
