@@ -57,8 +57,8 @@ public:
 	void findTeams(vector<Team>* founded, bool isNeed(Team item, C comparer), C comparer);
 	template<typename C>
 	void findPlayers(vector<Player>* founded, bool isNeed(Player item, C comparer), C comparer);
-	template<typename C>
-	void findGames(vector<Game>* founded, bool isNeed(Game item, C comparer), C comparer);
+	template<typename T>
+	void findGames(vector<Game>* founded, bool isNeed(Game item, T comparer), T comparer);
 	void sortStadiumTypes(bool canSwap(StadiumType i1, StadiumType i2));
 	void sortStadiums(bool canSwap(Stadium i1, Stadium i2));
 	void sortPositions(bool canSwap(Position i1, Position i2));

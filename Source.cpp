@@ -1,12 +1,11 @@
 #include<iostream>
 #include "StadiumType.h"
+#include "Manager.h"
 #include "constants.h"
 #include "helpers.h"
-#include "Manager.h"
 using namespace std;
 int main()
 {
-	vector<Game> gamesInJuly;
 	Manager manager = Manager(stadiumTypesFile, stadiumsFile, positionsFile, coachesFile, teamsFile, playersFile, gamesFile);
 	while (true)
 	{
@@ -110,6 +109,7 @@ int main()
 		}
 		case 16:
 		{
+			vector<Game> gamesInJuly;
 			int month = 7;
 			manager.findGames<int>(&gamesInJuly, gamesInMonth, month);
 			cout << "\n \t Games in July";

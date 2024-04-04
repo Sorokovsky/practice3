@@ -170,10 +170,10 @@ void Manager::findPlayers(vector<Player>* founded, bool isNeed(Player item, C co
 	this->find<Player, C>(founded, &this->players, isNeed, comparer);
 }
 
-template<typename C>
-void Manager::findGames(vector<Game>* founded, bool isNeed(Game item, C comparer), C comparer)
+template<typename T>
+void Manager::findGames(vector<Game>* founded, bool isNeed(Game item, T comparer), T comparer)
 {
-	this->find<Game, C>(founded, &this->games, isNeed, comparer);
+	this->find<Game, T>(founded, &this->games, isNeed, comparer);
 }
 
 template<typename T>
