@@ -109,14 +109,11 @@ int main()
 		}
 		case 16:
 		{
-			vector<Game> gamesInJuly;
+			List<Game> gamesInJuly;
 			int month = 7;
 			manager.findGames<int>(&gamesInJuly, gamesInMonth, month);
 			cout << "\n \t Games in July";
-			for (int i = 0; i < gamesInJuly.size(); i++)
-			{
-				gamesInJuly.at(i).print();
-			}
+			gamesInJuly.loop(Manager::show);
 			break;
 		}
 		default:

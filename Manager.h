@@ -1,7 +1,7 @@
 #pragma once
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include <iostream>
+#include "List.h"
+#include <algorithm>
 #include "StadiumType.h"
 #include "Stadium.h"
 #include "Position.h"
@@ -45,20 +45,20 @@ public:
 	void showTeams();
 	void showPlayers();
 	void showGames();
-	template<typename C>
-	void findStadiumTypes(vector<StadiumType>* founded, bool isNeed(StadiumType item, C comparer), C comparer);
-	template<typename C>
-	void findStadiums(vector<Stadium>* founded, bool isNeed(Stadium item, C comparer), C comparer);
-	template<typename C>
-	void findPositions(vector<Position>* founded, bool isNeed(Position item, C comparer), C comparer);
-	template<typename C>
-	void findCoaches(vector<Coach>* founded, bool isNeed(Coach item, C comparer), C comparer);
-	template<typename C>
-	void findTeams(vector<Team>* founded, bool isNeed(Team item, C comparer), C comparer);
-	template<typename C>
-	void findPlayers(vector<Player>* founded, bool isNeed(Player item, C comparer), C comparer);
-	template<typename T>
-	void findGames(vector<Game>* founded, bool isNeed(Game item, T comparer), T comparer);
+	template<class C>
+	void findStadiumTypes(List<StadiumType>* founded, bool isNeed(StadiumType item, C comparer), C comparer);
+	template<class C>
+	void findStadiums(List<Stadium>* founded, bool isNeed(Stadium item, C comparer), C comparer);
+	template<class C>
+	void findPositions(List<Position>* founded, bool isNeed(Position item, C comparer), C comparer);
+	template<class C>
+	void findCoaches(List<Coach>* founded, bool isNeed(Coach item, C comparer), C comparer);
+	template<class C>
+	void findTeams(List<Team>* founded, bool isNeed(Team item, C comparer), C comparer);
+	template<class C>
+	void findPlayers(List<Player>* founded, bool isNeed(Player item, C comparer), C comparer);
+	template<class T>
+	void findGames(List<Game>* founded, bool isNeed(Game item, T comparer), T comparer);
 	void sortStadiumTypes(bool canSwap(StadiumType i1, StadiumType i2));
 	void sortStadiums(bool canSwap(Stadium i1, Stadium i2));
 	void sortPositions(bool canSwap(Position i1, Position i2));
@@ -74,28 +74,37 @@ public:
 	void savePlayers();
 	void saveGames();
 	void saveAll();
-	void removeStadiumType(bool canRemove(StadiumType item));
-	void removeStadium(bool canRemove(Stadium item));
-	void removePosition(bool canRemove(Position item));
-	void removeCoach(bool canRemove(Coach item));
-	void removeTeam(bool canRemove(Team item));
-	void removePlayer(bool canRemove(Player item));
-	void removeGame(bool canRemove(Game item));
+	template<class C>
+	void removeStadiumType(bool canRemove(StadiumType item, C comparer), C Comparer);
+	template<class C>
+	void removeStadium(bool canRemove(Stadium item, C comparer), C Comparer);
+	template<class C>
+	void removePosition(bool canRemove(Position item, C comparer), C Comparer);
+	template<class C>
+	void removeCoach(bool canRemove(Coach item, C comparer), C Comparer);
+	template<class C>
+	void removeTeam(bool canRemove(Team item, C comparer), C Comparer);
+	template<class C>
+	void removePlayer(bool canRemove(Player item, C comparer), C Comparer);
+	template<class C>
+	void removeGame(bool canRemove(Game item, C comparer), C Comparer);
+	template<class T>
+	static void show(T item, int index);
 private:
-	template<typename T>
-	void add(T item, vector<T>* list, string& filePath);
-	template<typename T>
-	void load(vector<T>* list, const string& filePath);
-	template<typename T>
-	void showAll(vector<T>* list);
-	template<typename T, typename C>
-	void find(vector<T>* founded, vector<T>* list, bool isNeed(T item, C comparer), C comparer);
-	template<typename T>
-	void sort(vector<T>* list, bool canSwap(T i1, T i2));
-	template<typename T>
-	void save(vector<T>* list, string& filePath);
-	template<typename T>
-	void remove(vector<T>* list, bool canRemove(T item));
+	template<class T>
+	void add(T item, List<T>* list, string& filePath);
+	template<class T>
+	void load(List<T>* list, const string& filePath);
+	template<class T>
+	void showAll(List<T>* list);
+	template<class T, class C>
+	void find(List<T>* founded, List<T>* list, bool isNeed(T item, C comparer), C comparer);
+	template<class T>
+	void sort(List<T>* list, bool canSwap(T i1, T i2));
+	template<class T>
+	void save(List<T>* list, string& filePath);
+	template<class T, class C>
+	void remove(List<T>* list, bool canRemove(T item, C comparer), C comparer);
 	string stadiumTypesFile;
 	string stadiumsFile;
 	string positionsFile;
@@ -103,11 +112,11 @@ private:
 	string teamsFile;
 	string playersFile;
 	string gamesFile;
-	vector<StadiumType> stadiumTypes;
-	vector<Stadium> stadiums;
-	vector<Position> positions;
-	vector<Coach> coaches;
-	vector<Team> teams;
-	vector<Player> players;
-	vector<Game> games;
+	List<StadiumType> stadiumTypes;
+	List<Stadium> stadiums;
+	List<Position> positions;
+	List<Coach> coaches;
+	List<Team> teams;
+	List<Player> players;
+	List<Game> games;
 };

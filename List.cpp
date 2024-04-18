@@ -14,13 +14,7 @@ List<T>::List(T data)
 template<class T>
 List<T>::~List()
 {
-	Node<T>* current = this->getHead();
-	while (current != NULL)
-	{
-		Node<T>* temp = current->getNext();
-		delete(current);
-		current = temp;
-	}
+	this->clear();
 }
 
 template<class T>
@@ -83,13 +77,129 @@ void List<T>::loop(void delegate(T item, int index))
 }
 
 template<class T>
-template<class C>
-void List<T>::remove(bool canDelete(T data, C comparer), C comparer)
+void List<T>::swap(Node<T>* first, Node<T>* second)
 {
-	Node<T>* current = this->getHead();
-	if (current == NULL)
+	Node<T>* beforeFirst = this->getHead();
+	Node<T>* beforeSecond = this->getHead();
+	Node<T>* nextFirst = first->getNext();
+	Node<T>* nextSecond = second->getNext();
+	if (beforeFirst == NULL || beforeSecond == NULL)
 	{
 		return;
 	}
 
+	while (beforeFirst->getNext() != first)
+	{
+		beforeFirst = beforeFirst->getNext();
+	}
+	while (beforeSecond->getNext() != second)
+	{
+		beforeSecond = beforeSecond->getNext();
+	}
+	if (nextFirst == second)
+	{
+		nextFirst = first;
+	}
+	first->setNext(nextSecond);
+	second->setNext(nextFirst);
+	if (first == this->getHead())
+	{
+		this->setHead(second);
+	}
+	else
+	{
+		beforeFirst->setNext(second);
+	}
+	if (second == this->getHead())
+	{
+		this->setHead(first);
+	}
+	else
+	{
+		beforeSecond->setNext(first);
+	}
+}
+
+template<class T>
+void List<T>::clear()
+{
+	Node<T>* current = this->getHead();
+	while (current != NULL)
+	{
+		Node<T>* temp = current->getNext();
+		delete(current);
+		current = temp;
+	}
+	this->setHead(NULL);
+}
+
+template<class T>
+template<class C>
+void List<T>::remove(bool canDelete(T data, C comparer), C comparer)
+{
+	Node<T>* current = this->getHead();
+	while (current != NULL)
+	{
+		if (canDelete(current->getData(), comparer))
+		{
+			Node<T>* temp = this->getHead();
+			if (temp == current)
+			{
+				this->setHead(temp->getNext());
+				delete(temp);
+				current = this->getHead();
+				continue;
+			}
+			while (temp->getNext() != current)
+			{
+				temp = temp->getNext();
+			}
+			Node<T>* next = temp->getNext()->getNext();
+			delete(temp->getNext());
+			temp->setNext(next);
+			current = next;
+			continue;
+		}
+		current = current->getNext();
+	}
+}
+
+template<class T>
+void List<T>::sort(bool canSwap(T first, T second))
+{
+	Node<T>* current = this->getHead();
+	bool isUnsorted = false;
+	if (current == NULL)
+	{
+		return;
+	}
+	do
+	{
+		isUnsorted = false;
+		while (current->getNext() != NULL)
+		{
+			if (canSwap(current->getData(), current->getNext()->getData()))
+			{
+				isUnsorted = true;
+				this->swap(current, current->getNext());
+			}
+		}
+	} while (isUnsorted == false);
+}
+
+template<class T>
+template<class C>
+List<T> List<T>::find(bool isNeed(T item, C comparer), C comparer)
+{
+	List<T> founded = List<T>();
+	Node<T>* current = this->getHead();
+	while (current != NULL)
+	{
+		if (isNeed(current->getData(), comparer))
+		{
+			founded.create(current->getData());
+		}
+		current = current->getNext();
+	}
+	return founded;
 }

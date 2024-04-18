@@ -23,7 +23,16 @@ public:
 	void loop(void delegate(T item, int index));
 
 	template<class C>
-	void remove(bool canDelete(T data, C comparer), C comparer);
+	void remove(bool canDelete(T item, C comparer), C comparer);
+
+	void sort(bool canSwap(T first, T second));
+
+	template<class C>
+	List<T> find(bool isNeed(T item, C comparer), C comparer);
+
+	void clear();
 private:
+	void swap(Node<T>* first, Node<T>* second);
+
 	Node<T>* head;
 };
