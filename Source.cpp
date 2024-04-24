@@ -6,7 +6,7 @@
 using namespace std;
 int main()
 {
-	Manager manager = Manager(stadiumTypesFile, stadiumsFile, positionsFile, coachesFile, teamsFile, playersFile, gamesFile);
+	/*Manager manager = Manager(stadiumTypesFile, stadiumsFile, positionsFile, coachesFile, teamsFile, playersFile, gamesFile);
 	while (true)
 	{
 		int operation = chooseOperation();
@@ -122,6 +122,6 @@ int main()
 			break;
 		}
 		}
-	}
+	}*/
 	return 0;
 }

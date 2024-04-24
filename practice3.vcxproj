@@ -26,7 +26,7 @@
     <ClInclude Include="Equels.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="helpers.h" />
-    <ClInclude Include="List.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Player.h" />
@@ -39,10 +39,10 @@
   <ItemGroup>
     <ClCompile Include="Coach.cpp" />
     <ClCompile Include="Date.cpp" />
-    <ClCompile Include="List.cpp" />
-    <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="helpers.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
