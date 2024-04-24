@@ -36,3 +36,4 @@ private:
 
 	Node<T>* head;
 };
+#include "List.cpp"

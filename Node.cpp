@@ -1,3 +1,4 @@
+#pragma once
 #include "Node.h"
 template<class T>
 Node<T>::Node()
@@ -6,7 +7,7 @@ Node<T>::Node()
 }
 
 template<class T>
-Node<T>::Node(T data) : Node<T>(NULL)
+Node<T>::Node(T data) : Node<T>()
 {
 	this->setData(data);
 }

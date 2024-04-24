@@ -120,3 +120,4 @@ private:
 	List<Player> players;
 	List<Game> games;
 };
+//#include "Manager.cpp"

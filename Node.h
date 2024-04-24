@@ -21,3 +21,4 @@ private:
 	T data;
 	Node<T>* next;
 };
+#include "Node.cpp"

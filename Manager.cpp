@@ -1,3 +1,4 @@
+#pragma once
 #include "Manager.h"
 Manager::Manager(
 	string stadiumTypesFile,
@@ -226,7 +227,7 @@ void Manager::find(List<T>* founded, List<T>* list, bool isNeed(T item, C compar
 	if (founded == nullptr || list == nullptr)
 		return;
 
-	*founded = list->find<C>(isNeed);
+	*founded = list->find<C>(isNeed, comparer);
 }
 
 template<class T>
