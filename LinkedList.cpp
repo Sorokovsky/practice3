@@ -18,13 +18,7 @@ LinkedList<T>::LinkedList(T data)
 template<class T>
 LinkedList<T>::~LinkedList()
 {
-    Node<T>* current = head;
-    while (current != nullptr)
-    {
-        Node<T>* temp = current->getNext();
-        delete current;
-        current = temp;
-    }
+    this->clear();
 }
 
 
@@ -128,6 +122,19 @@ void LinkedList<T>::insert(T data, int index)
     temp->setNext(current->getNext());
     current->setNext(temp);
 
+}
+
+template<class T>
+void LinkedList<T>::clear()
+{
+    Node<T>* current = head;
+    while (current != NULL)
+    {
+        Node<T>* temp = current->getNext();
+        delete current;
+        current = temp;
+    }
+    this->setHead(NULL);
 }
 
 template<class T>

@@ -21,6 +21,7 @@ public:
 	template<class C>
 	void edit(bool isNeed(T item, C comparer), C comparer, T updated);
 	void insert(T data, int index);
+	void clear();
 private:
 	void swap(Node<T>* first, Node<T>* second);
 	Node<T>* head;

@@ -16,28 +16,28 @@ Repository<T>::~Repository()
 template<class T>
 void Repository<T>::add(T data)
 {
-	list.create(data);
+	this->list.create(data);
 	this->save();
 }
 
 template<class T>
 void Repository<T>::insert(T data, int index)
 {
-	list.insert(data, index);
+	this->list.insert(data, index);
 	this->save();
 }
 
 template<class T>
 void Repository<T>::sort(bool predicate(T first, T second))
 {
-	list.sort(predicate);
+	this->list.sort(predicate);
 	this->save();
 }
 
 template<class T>
 void Repository<T>::loop(void delegate(T item, int index))
 {
-	list.loop(delegate);
+	this->list.loop(delegate);
 	this->save();
 }
 
@@ -51,41 +51,36 @@ void Repository<T>::save()
 	}
 	else
 	{
-		file = ofstream(this->filePath, ios::out | ios::binary);
+		file = ofstream(this->filePath, ios::binary);
 		this->writeToFile(file);
 	}
 	file.close();
 }
 
 template<class T>
-void Repository<T>::load()
-{
+void Repository<T>::load() {
 	ifstream file(this->filePath, ios::in | ios::binary);
-	if (file.is_open())
-	{
-		list = LinkedList<T>();
-		T item;
-		while (!file.eof())
+	if (file.is_open()) {
+		this->list.clear();
+		T* item = new T();
+		while (file.read((char*)(item), sizeof(T))) 
 		{
-			file.read((char*)&item, 1);
-			if (file.eof())
-			{
-				break;
-			}
-			list.create(item);
+			this->list.create(*item);
 		}
+		delete(item);
+		file.close();
 	}
-	file.close();
 }
+
 
 template<class T>
 void Repository<T>::writeToFile(ofstream& file)
 {
-	Node<T>* current = list.getHead();
+	Node<T>* current = this->list.getHead();
 	while (current != NULL)
 	{
 		T item = current->getData();
-		file.write((char*)&item, 1);
+		file.write((char*)(&item), sizeof(T));
 		current = current->getNext();
 	}
 }
@@ -94,7 +89,7 @@ template<class T>
 template<class C>
 LinkedList<T> Repository<T>::find(bool predicate(T item, C comparer), C comparer)
 {
-	LinkedList<T> founded = list.find(predicate, comparer);
+	LinkedList<T> founded = this->list.find(predicate, comparer);
 	this->save();
 	return founded;
 }
@@ -103,6 +98,6 @@ template<class T>
 template<class C>
 void Repository<T>::remove(bool predicate(T item, C comparer), C comparer)
 {
-	list.remove(predicate, comparer);
+	this->list.remove(predicate, comparer);
 	this->save();
 }
