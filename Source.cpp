@@ -132,6 +132,22 @@ int main()
 			gamesInJuly.loop(showItem);
 			break;
 		}
+		case 17:
+		{
+			LinkedList<Player> playersYounger20Years = players.find<int>(findPlayerYounger, 20);
+			cout << "\n \t Players younger 20 year";
+			playersYounger20Years.loop(showItem);
+			break;
+		}
+		case 18:
+		{
+			cout << "\n \t Enter type fo search.";
+			StadiumType type = enterType();
+			LinkedList<Stadium> founded = stadiums.find<StadiumType>(byStatiumType, type);
+			cout << "\n \t Founded: ";
+			founded.loop(showItem);
+			break;
+		}
 		default:
 		{
 			cout << "\n \t Try again.";

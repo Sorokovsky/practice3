@@ -117,6 +117,8 @@ int chooseOperation()
 	cout << "\n \t 14-Show games.";
 	cout << "\n \t 15-Show sorted players by DESC birthday.";
 	cout << "\n \t 16-Get games in July.";
+	cout << "\n \t 17-Get players that younger 20 years.";
+	cout << "\n \t 18-Get stadiums by type";
 	cout << "\n \t >> ";
 	cin >> operation;
 	return operation;
@@ -130,4 +132,15 @@ bool orderPlayersByDate(Player i1, Player i2)
 bool gamesInMonth(Game item, int comparer)
 {
 	return item.getDateOfGame().getMonth() == comparer;
+}
+
+bool findPlayerYounger(Player item, int year)
+{
+	Date currentYear = Date::getNow();
+	return abs(item.getBirthday().getYear() - currentYear.getYear()) < year;
+}
+
+bool byStatiumType(Stadium item, StadiumType type)
+{
+	return (item.getCodeOfStadiumType().compare(type.getCodeOfStadiumType()) == 0) && (item.getNameOfStadiumType().compare(type.getNameOfStadiumType()) == 0);
 }

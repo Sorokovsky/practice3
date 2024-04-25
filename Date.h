@@ -1,5 +1,6 @@
 #pragma once
-#include<iostream>
+#include <iostream>
+#include <ctime>
 #include "Equels.h"
 using namespace std;
 class Date
@@ -15,6 +16,7 @@ public:
 	int getDay();
 	string monthToString();
 	static Equels compare(Date first, Date second);
+	static Date getNow();
 private:
 	int year;
 	int month;

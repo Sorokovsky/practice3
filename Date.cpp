@@ -119,3 +119,13 @@ Equels Date::compare(Date first, Date second)
 		}
 	}
 }
+
+Date Date::getNow()
+{
+	time_t t = time(nullptr);
+	tm* const now = new tm();
+	localtime_s(now, &t);
+	Date date = Date(now->tm_year + 1900, now->tm_mon + 1, now->tm_mday);
+	delete(now);
+	return date;
+}

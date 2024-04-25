@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include <ctime>
 #include "StadiumType.h"
 #include "Stadium.h"
 #include "Position.h"
@@ -22,3 +23,5 @@ Game enterGame();
 int chooseOperation();
 bool orderPlayersByDate(Player i1, Player i2);
 bool gamesInMonth(Game item, int comparer);
+bool findPlayerYounger(Player item, int year);
+bool byStatiumType(Stadium item, StadiumType type);
