@@ -1,12 +1,23 @@
 #include<iostream>
 #include "StadiumType.h"
-#include "Manager.h"
-#include "constants.h"
+#include "Stadium.h"
+#include "Position.h"
+#include "Coach.h"
+#include "Team.h"
+#include "Player.h"
+#include "Game.h"
+#include "Repository.h"
 #include "helpers.h"
 using namespace std;
 int main()
 {
-	/*Manager manager = Manager(stadiumTypesFile, stadiumsFile, positionsFile, coachesFile, teamsFile, playersFile, gamesFile);
+	Repository<StadiumType> stadiumTypes("stadium-types");
+	Repository<Stadium> stadiums("stadiums");
+	Repository<Position> positions("positions");
+	Repository<Coach> coaches("coaches");
+	Repository<Team> teams("teams");
+	Repository<Player> players("players");
+	Repository<Game> games("games");
 	while (true)
 	{
 		int operation = chooseOperation();
@@ -20,100 +31,100 @@ int main()
 		case 1:
 		{
 			StadiumType type = enterType();
-			manager.add(type);
+			stadiumTypes.add(type);
 			break;
 		}
 		case 2:
 		{
 			cout << "\n \t Stadium types";
-			manager.showStadiumTypes();
+			stadiumTypes.loop(showItem);
 			break;
 		}
 		case 3:
 		{
 			Stadium stadium = enterStadium();
-			manager.add(stadium);
+			stadiums.add(stadium);
 			break;
 		}
 		case 4:
 		{
 			cout << "\n \t Stadiums";
-			manager.showStadiums();
+			stadiums.loop(showItem);
 			break;
 		}
 		case 5:
 		{
 			Position position = enterPosition();
-			manager.add(position);
+			positions.add(position);
 			break;
 		}
 		case 6:
 		{
 			cout << "\n \t Positions";
-			manager.showPositions();
+			positions.loop(showItem);
 			break;
 		}
 		case 7:
 		{
 			Coach coach = enterCoach();
-			manager.add(coach);
+			coaches.add(coach);
 			break;
 		}
 		case 8:
 		{
 			cout << "\n \t Coaches";
-			manager.showCoaches();
+			coaches.loop(showItem);
 			break;
 		}
 		case 9:
 		{
 			Team team = enterTeam();
-			manager.add(team);
+			teams.add(team);
 			break;
 		}
 		case 10:
 		{
 			cout << "\n \t Teams";
-			manager.showTeams();
+			teams.loop(showItem);
 			break;
 		}
 		case 11:
 		{
 			Player player = enterPlayer();
-			manager.add(player);
+			players.add(player);
 			break;
 		}
 		case 12:
 		{
 			cout << "\n \t Players";
-			manager.showPlayers();
+			players.loop(showItem);
 			break;
 		}
 		case 13:
 		{
 			Game game = enterGame();
-			manager.add(game);
+			games.add(game);
 			break;
 		}
 		case 14:
 		{
 			cout << "\n \t Games";
-			manager.showGames();
+			games.loop(showItem);
 			break;
 		}
 		case 15:
 		{
-			manager.sortPlayers(orderPlayersByDate);
-			manager.showPlayers();
+			players.sort(orderPlayersByDate);
+			players.loop(showItem);
 			break;
 		}
 		case 16:
 		{
-			List<Game> gamesInJuly;
+			LinkedList<Game> gamesInJuly;
 			int month = 7;
-			manager.findGames<int>(&gamesInJuly, gamesInMonth, month);
+			gamesInJuly = games.find(gamesInMonth, month);
 			cout << "\n \t Games in July";
-			gamesInJuly.loop(Manager::show);
+			gamesInJuly.loop(showItem);
 			break;
 		}
 		default:
@@ -122,6 +133,6 @@ int main()
 			break;
 		}
 		}
-	}*/
+	}
 	return 0;
 }

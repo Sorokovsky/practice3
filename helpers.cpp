@@ -1,3 +1,4 @@
+#pragma once
 #include "helpers.h"
 Date enterDate()
 {
@@ -129,4 +130,11 @@ bool orderPlayersByDate(Player i1, Player i2)
 bool gamesInMonth(Game item, int comparer)
 {
 	return item.getDateOfGame().getMonth() == comparer;
+}
+
+template<class T>
+void showItem(T item, int index)
+{
+	cout << "\n \t #" << index + 1;
+	item.print();
 }
