@@ -67,7 +67,6 @@ void Repository<T>::load() {
 		{
 			this->list.create(*item);
 		}
-		delete(item);
 		file.close();
 	}
 }

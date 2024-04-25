@@ -126,9 +126,8 @@ int main()
 		}
 		case 16:
 		{
-			LinkedList<Game> gamesInJuly;
 			int month = 7;
-			gamesInJuly = games.find(gamesInMonth, month);
+			LinkedList<Game> gamesInJuly = games.find<int>(gamesInMonth, month);
 			cout << "\n \t Games in July";
 			gamesInJuly.loop(showItem);
 			break;

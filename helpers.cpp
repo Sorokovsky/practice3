@@ -124,7 +124,7 @@ int chooseOperation()
 
 bool orderPlayersByDate(Player i1, Player i2)
 {
-	return Date::compare(i1.getBirthday(), i2.getBirthday()) == Equels::firstMore;
+	return Date::compare(i1.getBirthday(), i2.getBirthday()) == Equels::secondMore;
 }
 
 bool gamesInMonth(Game item, int comparer)
