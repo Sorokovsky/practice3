@@ -141,7 +141,7 @@ int main()
 		}
 		case 18:
 		{
-			cout << "\n \t Enter type fo search.";
+			cout << "\n \t Enter type for search.";
 			StadiumType type = enterType();
 			LinkedList<Stadium> founded = stadiums.find<StadiumType>(byStatiumType, type);
 			cout << "\n \t Founded: ";
