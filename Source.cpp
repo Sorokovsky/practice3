@@ -9,6 +9,12 @@
 #include "Repository.h"
 #include "helpers.h"
 using namespace std;
+template<class T>
+void showItem(T item, int index)
+{
+	cout << "\n \t #" << index + 1;
+	item.print();
+}
 int main()
 {
 	Repository<StadiumType> stadiumTypes("stadium-types");

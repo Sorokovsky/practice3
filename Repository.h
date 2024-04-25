@@ -6,6 +6,7 @@ class Repository
 {
 public:
 	Repository(string tableName);
+	~Repository();
 	void add(T data);
 	void insert(T data, int index);
 	template<class C>
@@ -17,6 +18,7 @@ public:
 	void save();
 	void load();
 private:
+	void writeToFile(ofstream& file);
 	LinkedList<T> list;
 	string filePath;
 };

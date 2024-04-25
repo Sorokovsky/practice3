@@ -22,6 +22,3 @@ Game enterGame();
 int chooseOperation();
 bool orderPlayersByDate(Player i1, Player i2);
 bool gamesInMonth(Game item, int comparer);
-template<class T>
-void showItem(T item, int index);
-//#include "helpers.cpp"
