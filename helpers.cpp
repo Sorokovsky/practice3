@@ -140,7 +140,12 @@ bool findPlayerYounger(Player item, int year)
 	return abs(item.getBirthday().getYear() - currentYear.getYear()) < year;
 }
 
-bool byStatiumType(Stadium item, StadiumType type)
+bool byStadiumType(Stadium item, StadiumType type)
 {
 	return (item.getCodeOfStadiumType().compare(type.getCodeOfStadiumType()) == 0) && (item.getNameOfStadiumType().compare(type.getNameOfStadiumType()) == 0);
+}
+
+bool findGameByMonthAndYear(Game item, Date date)
+{
+	return (item.getDateOfGame().getYear() == date.getYear()) && (item.getDateOfGame().getMonth() == date.getMonth());
 }

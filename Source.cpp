@@ -143,9 +143,21 @@ int main()
 		{
 			cout << "\n \t Enter type for search.";
 			StadiumType type = enterType();
-			LinkedList<Stadium> founded = stadiums.find<StadiumType>(byStatiumType, type);
+			LinkedList<Stadium> founded = stadiums.find<StadiumType>(byStadiumType, type);
 			cout << "\n \t Founded: ";
 			founded.loop(showItem);
+			break;
+		}
+		case 19:
+		{
+			LinkedList<Game> result = games.find<Date>(findGameByMonthAndYear, Date(0, 8, 2012));
+			cout << "\n \t Games in August 2012";
+			result.loop(showItem);
+			break;
+		}
+		case 20:
+		{
+
 			break;
 		}
 		default:

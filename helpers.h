@@ -24,4 +24,5 @@ int chooseOperation();
 bool orderPlayersByDate(Player i1, Player i2);
 bool gamesInMonth(Game item, int comparer);
 bool findPlayerYounger(Player item, int year);
-bool byStatiumType(Stadium item, StadiumType type);
+bool byStadiumType(Stadium item, StadiumType type);
+bool findGameByMonthAndYear(Game item, Date date);
