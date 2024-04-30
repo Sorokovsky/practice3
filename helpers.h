@@ -26,3 +26,5 @@ bool gamesInMonth(Game item, int comparer);
 bool findPlayerYounger(Player item, int year);
 bool byStadiumType(Stadium item, StadiumType type);
 bool findGameByMonthAndYear(Game item, Date date);
+int getAge(Date birthday);
+int accomulateAvarageAge(Player, int result);

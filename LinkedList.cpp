@@ -237,3 +237,17 @@ void LinkedList<T>::edit(bool isNeed(T item, C comparer), C comparer, T updated)
         current = current->getNext();
     }
 }
+
+template<class T>
+template<class C>
+C LinkedList<T>::redce(C delegate(T item, C result), C startValue)
+{
+    Node<T>* current = this->getHead();
+    C result = startValue;
+    while (current != NULL)
+    {
+        result = delegate(current->getData(), result);
+        current = current->getNext();
+    }
+    return result;
+}

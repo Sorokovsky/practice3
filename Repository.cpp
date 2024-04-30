@@ -100,3 +100,10 @@ void Repository<T>::remove(bool predicate(T item, C comparer), C comparer)
 	this->list.remove(predicate, comparer);
 	this->save();
 }
+
+template<class T>
+template<class C>
+C Repository<T>::reduce(C delegate(T item, C result), C startValue)
+{
+	return this->list.redce<C>(delegate, startValue);
+}

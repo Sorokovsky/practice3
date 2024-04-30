@@ -157,6 +157,12 @@ int main()
 		}
 		case 20:
 		{
+			int avarageAge = players.reduce<int>(accomulateAvarageAge, 0);
+			cout << "\n \t Avarage age of players: " << avarageAge;
+			break;
+		}
+		case 21:
+		{
 
 			break;
 		}

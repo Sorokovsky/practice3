@@ -119,6 +119,9 @@ int chooseOperation()
 	cout << "\n \t 16-Get games in July.";
 	cout << "\n \t 17-Get players that younger 20 years.";
 	cout << "\n \t 18-Get stadiums by type";
+	cout << "\n \t 19-Games in August 2012";
+	cout << "\n \t 20-Avarage age of players.";
+	cout << "\n \t 21-Get date of first game.";
 	cout << "\n \t >> ";
 	cin >> operation;
 	return operation;
@@ -137,7 +140,7 @@ bool gamesInMonth(Game item, int comparer)
 bool findPlayerYounger(Player item, int year)
 {
 	Date currentYear = Date::getNow();
-	return abs(item.getBirthday().getYear() - currentYear.getYear()) < year;
+	return getAge(item.getBirthday()) < year;
 }
 
 bool byStadiumType(Stadium item, StadiumType type)
@@ -149,3 +152,14 @@ bool findGameByMonthAndYear(Game item, Date date)
 {
 	return (item.getDateOfGame().getYear() == date.getYear()) && (item.getDateOfGame().getMonth() == date.getMonth());
 }
+
+int getAge(Date birthday)
+{
+	return abs(birthday.getYear() - Date::getNow().getYear());
+}
+
+int accomulateAvarageAge(Player item, int result)
+{
+	return result += getAge(item.getBirthday());
+}
+ 

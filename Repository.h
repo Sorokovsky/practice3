@@ -17,6 +17,8 @@ public:
 	void remove(bool predicate(T item, C comparer), C comparer);
 	void save();
 	void load();
+	template<class C>
+	C reduce(C delegate(T item, C result), C startValue);
 private:
 	void writeToFile(ofstream& file);
 	LinkedList<T> list;
