@@ -32,9 +32,11 @@ int main()
 	Repository<Team> teams("teams");
 	Repository<Player> players("players");
 	Repository<Game> games("games");
+	Repository<Player> playersFrom1986("players-1986");
 	while (true)
 	{
 		int operation = chooseOperation();
+		system("CLS");
 		switch (operation)
 		{
 		case 0:
@@ -243,6 +245,26 @@ int main()
 			}
 			cout << "\n \t Enter a player code: "; cin >> code;
 			players.remove(findPlayerByCode, code);
+			break;
+		}
+		case 24:
+		{
+			if (!isAdmin)
+			{
+				cout << "\n \t You must be admin.";
+				continue;
+			}
+			LinkedList<Player> list = players.find(findPlayerByYear, 1986);
+			for (int i = 0; i < list.getSize(); i++)
+			{
+				playersFrom1986.add(list[i]);
+			}
+			break;
+		}
+		case 25:
+		{
+			cout << "\n \t Player from 1986.";
+			playersFrom1986.loop(showItem);
 			break;
 		}
 		default:

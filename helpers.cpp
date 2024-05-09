@@ -124,6 +124,8 @@ int chooseOperation()
 	cout << "\n \t 21-Get date of first game.";
 	cout << "\n \t 22-Change phone of stadium.";
 	cout << "\n \t 23-Delete player by code.";
+	cout << "\n \t 24-Copy players from 1986.";
+	cout << "\n \t 25-Show players from 1986.";
 	cout << "\n \t >> ";
 	cin >> operation;
 	return operation;
@@ -177,5 +179,10 @@ bool findStadiumByCodePredicate(Stadium item, string code)
 
 bool findPlayerByCode(Player item, string code)
 {
-	return item.getPlayerCode().compare(code);
+	return item.getPlayerCode().compare(code) == 0;
+}
+
+bool findPlayerByYear(Player item, int year)
+{
+	return item.getBirthday().getYear() == year;
 }

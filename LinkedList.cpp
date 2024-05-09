@@ -225,7 +225,14 @@ void LinkedList<T>::remove(bool isNeed(T item, C comparer), C comparer)
     }
     if (isNeed(current->getData(), comparer))
     {
-        this->setHead(current->getNext());
+        if (current->getNext() != NULL)
+        {
+            this->setHead(current->getNext());
+        }
+        else
+        {
+            this->setHead(NULL);
+        }
         delete(current);
         this->size--;
         return;

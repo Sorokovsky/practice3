@@ -31,3 +31,4 @@ int accomulateAvarageAge(Player, int result);
 bool sortGamesByDate(Game i1, Game i2);
 bool findStadiumByCodePredicate(Stadium item, string code);
 bool findPlayerByCode(Player item, string code);
+bool findPlayerByYear(Player item, int year);
