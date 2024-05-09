@@ -71,6 +71,18 @@ void Repository<T>::load() {
 	}
 }
 
+template<class T>
+int Repository<T>::getSize()
+{
+	return this->list.getSize();
+}
+
+
+template<class T>
+T Repository<T>::operator[](int index)
+{
+	return this->list[index];
+}
 
 template<class T>
 void Repository<T>::writeToFile(ofstream& file)
@@ -98,6 +110,14 @@ template<class C>
 void Repository<T>::remove(bool predicate(T item, C comparer), C comparer)
 {
 	this->list.remove(predicate, comparer);
+	this->save();
+}
+
+template<class T>
+template<class C>
+void Repository<T>::edit(bool isNeed(T item, C comparer), C comparer, T updated)
+{
+	this->list.edit(isNeed, comparer, updated);
 	this->save();
 }
 

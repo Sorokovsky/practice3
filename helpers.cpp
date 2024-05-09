@@ -122,6 +122,8 @@ int chooseOperation()
 	cout << "\n \t 19-Games in August 2012";
 	cout << "\n \t 20-Avarage age of players.";
 	cout << "\n \t 21-Get date of first game.";
+	cout << "\n \t 22-Change phone of stadium.";
+	cout << "\n \t 23-Delete player by code.";
 	cout << "\n \t >> ";
 	cin >> operation;
 	return operation;
@@ -162,4 +164,18 @@ int accomulateAvarageAge(Player item, int result)
 {
 	return result += getAge(item.getBirthday());
 }
- 
+
+bool sortGamesByDate(Game i1, Game i2)
+{
+	return Date::compare(i1.getDateOfGame(), i2.getDateOfGame()) == Equels::firstMore;
+}
+
+bool findStadiumByCodePredicate(Stadium item, string code)
+{
+	return item.getCodeOfStadiumType().compare(code) == 0;
+}
+
+bool findPlayerByCode(Player item, string code)
+{
+	return item.getPlayerCode().compare(code);
+}

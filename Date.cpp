@@ -49,6 +49,11 @@ int Date::getDay()
 	return this->day;
 }
 
+void Date::print()
+{
+	cout << "\n \t Date: " << this->getYear() << "." << this->getMonth() << "." << this->getDay();
+}
+
 string Date::monthToString()
 {
 	string month;

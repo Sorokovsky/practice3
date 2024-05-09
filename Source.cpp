@@ -9,14 +9,22 @@
 #include "Repository.h"
 #include "helpers.h"
 using namespace std;
+string adminPassword = "admin", password;
 template<class T>
 void showItem(T item, int index)
 {
 	cout << "\n \t #" << index + 1;
 	item.print();
 }
+template<class T, class C>
+bool findAllPredicate(T item, C comparer)
+{
+	return true;
+}
 int main()
 {
+	cout << "\n \t Enter password: "; cin >> password;
+	bool isAdmin = password == adminPassword;
 	Repository<StadiumType> stadiumTypes("stadium-types");
 	Repository<Stadium> stadiums("stadiums");
 	Repository<Position> positions("positions");
@@ -36,6 +44,11 @@ int main()
 		}
 		case 1:
 		{
+			if (!isAdmin)
+			{
+				cout << "\n \t You must be admin.";
+				continue;
+			}
 			StadiumType type = enterType();
 			stadiumTypes.add(type);
 			break;
@@ -48,6 +61,11 @@ int main()
 		}
 		case 3:
 		{
+			if (!isAdmin)
+			{
+				cout << "\n \t You must be admin.";
+				continue;
+			}
 			Stadium stadium = enterStadium();
 			stadiums.add(stadium);
 			break;
@@ -60,6 +78,11 @@ int main()
 		}
 		case 5:
 		{
+			if (!isAdmin)
+			{
+				cout << "\n \t You must be admin.";
+				continue;
+			}
 			Position position = enterPosition();
 			positions.add(position);
 			break;
@@ -72,6 +95,11 @@ int main()
 		}
 		case 7:
 		{
+			if (!isAdmin)
+			{
+				cout << "\n \t You must be admin.";
+				continue;
+			}
 			Coach coach = enterCoach();
 			coaches.add(coach);
 			break;
@@ -84,6 +112,11 @@ int main()
 		}
 		case 9:
 		{
+			if (!isAdmin)
+			{
+				cout << "\n \t You must be admin.";
+				continue;
+			}
 			Team team = enterTeam();
 			teams.add(team);
 			break;
@@ -96,6 +129,11 @@ int main()
 		}
 		case 11:
 		{
+			if (!isAdmin)
+			{
+				cout << "\n \t You must be admin.";
+				continue;
+			}
 			Player player = enterPlayer();
 			players.add(player);
 			break;
@@ -108,6 +146,11 @@ int main()
 		}
 		case 13:
 		{
+			if (!isAdmin)
+			{
+				cout << "\n \t You must be admin.";
+				continue;
+			}
 			Game game = enterGame();
 			games.add(game);
 			break;
@@ -163,7 +206,43 @@ int main()
 		}
 		case 21:
 		{
-
+			LinkedList<Game> gamesList = games.find<void*>(findAllPredicate, NULL);
+			gamesList.sort(sortGamesByDate);
+			cout << "\n \t The date of first game.";
+			gamesList[0].getDateOfGame().print();
+			break;
+		}
+		case 22:
+		{
+			string stadiumCode, phone;
+			if (!isAdmin)
+			{
+				cout << "\n \t You must be admin.";
+				continue;
+			}
+			cout << "\n \t Enter a stadium code for search: "; cin >> stadiumCode;
+			cout << "\n \t Enter a new phone: "; cin >> phone;
+			for (int i = 0; i < stadiums.getSize(); i++)
+			{
+				Stadium stadium = stadiums[i];
+				if (stadium.getStadiumCode().compare(stadiumCode) == 0)
+				{
+					stadium.setStadiumPhoneNumber(phone);
+					stadiums.edit(findStadiumByCodePredicate, stadiumCode, stadium);
+				}
+			}
+			break;
+		}
+		case 23:
+		{
+			string code;
+			if (!isAdmin)
+			{
+				cout << "\n \t You must be admin.";
+				continue;
+			}
+			cout << "\n \t Enter a player code: "; cin >> code;
+			players.remove(findPlayerByCode, code);
 			break;
 		}
 		default:

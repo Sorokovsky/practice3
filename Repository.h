@@ -17,8 +17,12 @@ public:
 	void remove(bool predicate(T item, C comparer), C comparer);
 	void save();
 	void load();
+	int getSize();
+	template<class C>
+	void edit(bool isNeed(T item, C comparer), C comparer, T updated);
 	template<class C>
 	C reduce(C delegate(T item, C result), C startValue);
+	T operator[](int index);
 private:
 	void writeToFile(ofstream& file);
 	LinkedList<T> list;

@@ -12,6 +12,7 @@ public:
 	void setHead(Node<T>* head);
 	Node<T>* getHead();
 	void create(T data);
+	int getSize();
 	void loop(void delegate(T item, int index));
 	template<class C>
 	LinkedList<T> find(bool isNeed(T item, C comparer), C comparer);
@@ -24,7 +25,9 @@ public:
 	void clear();
 	template<class C>
 	C redce(C delegate(T item, C result), C startValue);
+	T operator[](int index);
 private:
+	int size = 0;
 	void swap(Node<T>* first, Node<T>* second);
 	Node<T>* head;
 };

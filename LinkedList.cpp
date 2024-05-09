@@ -1,7 +1,5 @@
 #pragma once
-#include "LinkedList.h" // Включення файлу заголовка з деклараціями класу
-
-// Визначення конструкторів та деструктора
+#include "LinkedList.h"
 
 template<class T>
 LinkedList<T>::LinkedList()
@@ -12,6 +10,7 @@ LinkedList<T>::LinkedList()
 template<class T>
 LinkedList<T>::LinkedList(T data)
 {
+    this->size++;
     this->setHead(new Node<T>(data));
 }
 
@@ -42,13 +41,21 @@ void LinkedList<T>::create(T data)
     if (current == NULL)
     {
         this->setHead(temp);
+        this->size++;
         return;
     }
     while (current->getNext() != NULL)
     {
         current = current->getNext();
     }
+    this->size++;
     current->setNext(temp);
+}
+
+template<class T>
+int LinkedList<T>::getSize()
+{
+    return this->size;
 }
 
 template<class T>
@@ -116,11 +123,13 @@ void LinkedList<T>::insert(T data, int index)
     {
         temp->setNext(current);
         this->setHead(temp);
+        this->size++;
         return;
     }
     for (int i = 1; (i < index) && (current->getNext() != NULL); i++, current = current->getNext());
     temp->setNext(current->getNext());
     current->setNext(temp);
+    this->size++;
 
 }
 
@@ -135,6 +144,19 @@ void LinkedList<T>::clear()
         current = temp;
     }
     this->setHead(NULL);
+    this->size = 0;
+}
+
+template<class T>
+T LinkedList<T>::operator[](int index)
+{
+    Node<T>* current = this->getHead();
+    for (int i = 0; i < index; i++)
+    {
+        current = current->getNext();
+    }
+    T item = current->getData();
+    return item;
 }
 
 template<class T>
@@ -197,7 +219,7 @@ template<class C>
 void LinkedList<T>::remove(bool isNeed(T item, C comparer), C comparer)
 {
     Node<T>* current = this->getHead();
-    if (current == NULL)
+    if ((current == NULL))
     {
         return;
     }
@@ -205,6 +227,7 @@ void LinkedList<T>::remove(bool isNeed(T item, C comparer), C comparer)
     {
         this->setHead(current->getNext());
         delete(current);
+        this->size--;
         return;
     }
     while ((current != NULL) && (current->getNext() != NULL))
@@ -214,6 +237,7 @@ void LinkedList<T>::remove(bool isNeed(T item, C comparer), C comparer)
             Node<T>* temp = current->getNext()->getNext();
             delete(current->getNext());
             current->setNext(temp);
+            this->size--;
         }
         current = current->getNext();
     }

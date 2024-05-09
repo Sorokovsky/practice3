@@ -14,6 +14,7 @@ public:
 	int getYear();
 	int getMonth();
 	int getDay();
+	void print();
 	string monthToString();
 	static Equels compare(Date first, Date second);
 	static Date getNow();
