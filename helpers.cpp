@@ -126,6 +126,8 @@ int chooseOperation()
 	cout << "\n \t 23-Delete player by code.";
 	cout << "\n \t 24-Copy players from 1986.";
 	cout << "\n \t 25-Show players from 1986.";
+	cout << "\n \t 26-Get games in 11 september 2011.";
+	cout << "\n \t 27-Get stadium which had games.";
 	cout << "\n \t >> ";
 	cin >> operation;
 	return operation;
@@ -185,4 +187,9 @@ bool findPlayerByCode(Player item, string code)
 bool findPlayerByYear(Player item, int year)
 {
 	return item.getBirthday().getYear() == year;
+}
+
+bool findGameByDate(Game game, Date date)
+{
+	return Date::compare(game.getDateOfGame(), date) == Equels::equel;
 }

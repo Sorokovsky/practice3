@@ -267,6 +267,29 @@ int main()
 			playersFrom1986.loop(showItem);
 			break;
 		}
+		case 26:
+		{
+			if (!isAdmin)
+			{
+				cout << "\n \t You must be a admin";
+				continue;
+			}
+			games.remove(findGameByDate, Date(2011, 9, 11));
+			break;
+		}
+		case 27:
+		{
+			for (int i = 0; i < games.getSize(); i++)
+			{
+				Game game = games[i];
+				if (Date::compare(game.getDateOfGame(), Date::getNow()) == Equels::secondMore)
+				{
+					Stadium stadium = Stadium(game);
+					stadium.print();
+				}
+			}
+			break;
+		}
 		default:
 		{
 			cout << "\n \t Try again.";
