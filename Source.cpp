@@ -301,7 +301,7 @@ int main()
 				Player temp = players[0];
 				for (int i = 0; i < players.getSize(); i++)
 				{
-					if (Date::compare(temp.getBirthday(), players[i].getBirthday()) == Equels::firstMore)
+					if (Date::compare(temp.getBirthday(), players[i].getBirthday()) == Equels::secondMore)
 					{
 						temp = players[i];
 					}
