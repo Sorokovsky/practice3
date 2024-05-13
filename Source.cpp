@@ -196,9 +196,13 @@ int main()
 		}
 		case 19:
 		{
-			LinkedList<Game> result = games.find<Date>(findGameByMonthAndYear, Date(0, 8, 2012));
+			LinkedList<Game> result = games.find<Date>(findGameByMonthAndYear, Date(2012, 8, 0));
 			cout << "\n \t Games in August 2012";
-			result.loop(showItem);
+			for (int i = 0; i < result.getSize(); i++)
+			{
+				((Stadium)result[i]).print();
+				((Team)result[i]).print();
+			}
 			break;
 		}
 		case 20:
