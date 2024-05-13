@@ -284,9 +284,28 @@ int main()
 				Game game = games[i];
 				if (Date::compare(game.getDateOfGame(), Date::getNow()) == Equels::secondMore)
 				{
-					Stadium stadium = Stadium(game);
-					stadium.print();
+					((Stadium)game).print();
 				}
+			}
+			break;
+		}
+		case 28:
+		{
+			if (players.getSize() > 0)
+			{
+				Player temp = players[0];
+				for (int i = 0; i < players.getSize(); i++)
+				{
+					if (Date::compare(temp.getBirthday(), players[i].getBirthday()) == Equels::firstMore)
+					{
+						temp = players[i];
+					}
+				}
+				cout << "\n \t Surname of youngest player: " << temp.getSurname();
+			}
+			else
+			{
+				cout << "\n  \t Players list is empty.";
 			}
 			break;
 		}
