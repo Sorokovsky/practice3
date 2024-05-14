@@ -49,8 +49,6 @@ public:
 	void setDateOfGame(Date dateOfGame);
 	void setTimeOfGame(Time timeOfGame);
 	void print() override;
-	void setSecondTeam(Team secondTeam);
-	Team getSecondTeam();
 protected:
 	void printHead() override;
 	void printBody() override;
@@ -60,6 +58,4 @@ private:
 	string gameName;
 	Date dateOfGame;
 	Time timeOfGame;
-	Team second;
-	int score;
 };

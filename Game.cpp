@@ -117,16 +117,6 @@ void Game::print()
 	this->printEnd();
 }
 
-void Game::setSecondTeam(Team secondTeam)
-{
-	this->second = secondTeam;
-}
-
-Team Game::getSecondTeam()
-{
-	return this->second;
-}
-
 void Game::printHead()
 {
 	cout << "\n \t Game { ";
