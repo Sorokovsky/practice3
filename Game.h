@@ -1,5 +1,5 @@
 #pragma once
-#include<iostream>
+#include <iostream>
 #include "Stadium.h"
 #include "Team.h"
 #include "Date.h"
@@ -27,15 +27,17 @@ public:
 		string gameCode,
 		string gameName,
 		Date dateOfGame,
-		Time timeOfGame
+		Time timeOfGame,
+		Team secondTeam
 	);
 	Game(
-		Stadium stadium, 
+		Stadium stadium,
 		Team team,
 		string gameCode,
 		string gameName,
 		Date dateOfGame,
-		Time timeOfGame
+		Time timeOfGame,
+		Team secondTeam
 	);
 	Game();
 	string getGameCode();
@@ -47,6 +49,8 @@ public:
 	void setDateOfGame(Date dateOfGame);
 	void setTimeOfGame(Time timeOfGame);
 	void print() override;
+	void setSecondTeam(Team secondTeam);
+	Team getSecondTeam();
 protected:
 	void printHead() override;
 	void printBody() override;
@@ -56,4 +60,6 @@ private:
 	string gameName;
 	Date dateOfGame;
 	Time timeOfGame;
+	Team second;
+	int score;
 };

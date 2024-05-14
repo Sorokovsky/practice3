@@ -1,26 +1,27 @@
 #include "Game.h"
 
 Game::Game(
-	string positionName, 
-	string requirements, 
-	int salary, 
-	string coachPhoneNumber, 
-	string coachAddress, 
-	int age, 
-	string teamCode, 
-	string teamName, 
-	string codeOfStadiumType, 
-	string nameOfStadiumType, 
-	string stadiumCode, 
-	string stadiumName, 
-	string stadiumAddress, 
-	string stadiumPhoneNumber, 
-	string masterHead, 
+	string positionName,
+	string requirements,
+	int salary,
+	string coachPhoneNumber,
+	string coachAddress,
+	int age,
+	string teamCode,
+	string teamName,
+	string codeOfStadiumType,
+	string nameOfStadiumType,
+	string stadiumCode,
+	string stadiumName,
+	string stadiumAddress,
+	string stadiumPhoneNumber,
+	string masterHead,
 	string notes,
 	string gameCode,
 	string gameName,
 	Date dateOfGame,
-	Time timeOfGame
+	Time timeOfGame,
+	Team secondTeam
 ) : Stadium(
 	codeOfStadiumType,
 	nameOfStadiumType,
@@ -54,7 +55,8 @@ Game::Game(
 	string gameCode,
 	string gameName,
 	Date dateOfGame,
-	Time timeOfGame
+	Time timeOfGame,
+	Team secondTeam
 ) : Team(team.getPositionName(), team.getRequirements(), team.getSalary(), team.getCoachPhoneNumber(), team.getCoachAddress(), team.getAge(), team.getTeamCode(), team.getTeamName()),
 	Stadium(stadium.getCodeOfStadiumType(), stadium.getNameOfStadiumType(), stadium.getStadiumCode(), stadium.getStadiumName(), stadium.getStadiumAddress(), stadium.getStadiumPhoneNumber(), stadium.getMasterHead(), stadium.getNotes())
 {
@@ -113,6 +115,16 @@ void Game::print()
 	this->printHead();
 	this->printBody();
 	this->printEnd();
+}
+
+void Game::setSecondTeam(Team secondTeam)
+{
+	this->second = secondTeam;
+}
+
+Team Game::getSecondTeam()
+{
+	return this->second;
 }
 
 void Game::printHead()
