@@ -129,6 +129,7 @@ int chooseOperation()
 	cout << "\n \t 26-Get games in 11 september 2011.";
 	cout << "\n \t 27-Get stadium which had games.";
 	cout << "\n \t 28-Get surname of younger player.";
+	cout << "\n \t 29-Get Rating tample.";
 	cout << "\n \t >> ";
 	cin >> operation;
 	return operation;
