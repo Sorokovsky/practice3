@@ -184,6 +184,6 @@ void Game::play()
 
 int Game::getRandomGoals()
 {
-	srand(time(0));
+	srand(static_cast<unsigned>(time(0)));
 	return rand() % 21;
 }

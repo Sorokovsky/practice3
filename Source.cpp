@@ -392,6 +392,54 @@ int main()
 						ratings.edit(findRatingByName, rating.getName(), rating);
 					}
 				}
+				if (foundFirst == false)
+				{
+					int score;
+					if (game.getFirstGoals() > game.getSecondGoals())
+					{
+						score = 3;
+					}
+					else if (game.getFirstGoals() < game.getSecondGoals())
+					{
+						score = 0;
+					}
+					else
+					{
+						score = 1;
+					}
+					Rating rating(game.getTeamName(), 1, score);
+					ratings.create(rating);
+				}
+				if (foundSecond == false)
+				{
+					int score;
+					if (game.getFirstGoals() < game.getSecondGoals())
+					{
+						score = 3;
+					}
+					else if (game.getFirstGoals() > game.getSecondGoals())
+					{
+						score = 0;
+					}
+					else
+					{
+						score = 1;
+					}
+					Rating rating(game.getSecondTeam().getTeamName(), 1, score);
+					ratings.create(rating);
+				}
+			}
+			cout << "\n \t -----------------------------";
+			cout << "\n \t | Team name | Games | Score |";
+			cout << "\n \t -----------------------------";
+			for (int i = 0; ratings.getSize(); i++)
+			{
+				Rating rating = ratings[i];
+				cout << "\n \t | " << rating.getName();
+				cout << " | " << rating.getCountOfGame();
+				cout << " | " << rating.getScore();
+				cout << " |";
+				cout << "\n \t -----------------------------";
 			}
 			break;
 		}
