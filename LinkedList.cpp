@@ -151,6 +151,10 @@ template<class T>
 T LinkedList<T>::operator[](int index)
 {
     Node<T>* current = this->getHead();
+    if (index > this->getSize() - 1)
+    {
+        throw new out_of_range("");
+    }
     for (int i = 0; i < index; i++)
     {
         current = current->getNext();

@@ -432,12 +432,12 @@ int main()
 			cout << "\n \t -----------------------------";
 			cout << "\n \t | Team name | Games | Score |";
 			cout << "\n \t -----------------------------";
-			for (int i = 0; ratings.getSize(); i++)
+			for (int i = 0; i < ratings.getSize(); i++)
 			{
 				Rating rating = ratings[i];
-				cout << "\n \t | " << rating.getName();
-				cout << " | " << rating.getCountOfGame();
-				cout << " | " << rating.getScore();
+				cout << "\n \t | "; cout.width(4); cout << rating.getName(); cout.width(4);
+				cout << " | "; cout.width(4); cout << rating.getCountOfGame(); cout.width(4);
+				cout << " | "; cout.width(4); cout << rating.getScore(); cout.width(4);
 				cout << " |";
 				cout << "\n \t -----------------------------";
 			}
