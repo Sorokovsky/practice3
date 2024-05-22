@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 #include <map>
 #include "StadiumType.h"
 #include "Stadium.h"
@@ -8,6 +9,7 @@
 #include "Player.h"
 #include "Game.h"
 #include "Repository.h"
+#include "Rating.h"
 #include "helpers.h"
 using namespace std;
 string adminPassword = "admin", password;
@@ -25,7 +27,15 @@ bool findAllPredicate(T item, C comparer)
 int main()
 {
 	cout << "\n \t Enter password: "; cin >> password;
-	bool isAdmin = password == adminPassword;
+	bool isAdmin = password.compare(adminPassword) == 0;
+	if (isAdmin)
+	{
+		cout << "\n \t You are admin.";
+	}
+	else
+	{
+		cout << "\n \t You are user.";
+	}
 	Repository<StadiumType> stadiumTypes("stadium-types");
 	Repository<Stadium> stadiums("stadiums");
 	Repository<Position> positions("positions");
@@ -36,6 +46,7 @@ int main()
 	Repository<Player> playersFrom1986("players-1986");
 	while (true)
 	{
+		cout << "\n \t Press any key to continue."; _getch();
 		int operation = chooseOperation();
 		system("CLS");
 		switch (operation)
@@ -311,6 +322,76 @@ int main()
 			else
 			{
 				cout << "\n  \t Players list is empty.";
+			}
+			break;
+		}
+		case 29:
+		{
+			LinkedList<Rating> ratings = LinkedList<Rating>();
+			for (int i = 0; i < games.getSize(); i++)
+			{
+				Game game = games[i];
+				Team firstTeam = (Team)game;
+				Team secondTeam = game.getSecondTeam();
+				bool foundFirst = false;
+				bool foundSecond = false;
+				for (int j = 0; j < ratings.getSize(); j++)
+				{
+					Rating rating = ratings[j];
+					bool isFirstTeam = rating.getName().compare(firstTeam.getTeamName()) == 0;
+					bool isSecondTeam = rating.getName().compare(secondTeam.getTeamName()) == 0;
+					Equels wins;
+					if (game.getFirstGoals() == game.getSecondGoals())
+					{
+						wins = Equels::equel;
+					}
+					if (game.getFirstGoals() > game.getSecondGoals())
+					{
+						wins = Equels::firstMore;
+					}
+					if (game.getFirstGoals() < game.getSecondGoals())
+					{
+						wins = Equels::secondMore;
+					}
+
+					if (isFirstTeam || isSecondTeam)
+					{
+						if (isFirstTeam)
+						{
+							foundFirst = true;
+							if (wins == Equels::firstMore)
+							{
+								rating.setScore(rating.getScore() + 3);
+							}
+							else if (wins == Equels::secondMore)
+							{
+								rating.setScore(rating.getScore() + 0);
+							}
+							else
+							{
+								rating.setScore(rating.getScore() + 1);
+							}
+						}
+						if (isSecondTeam)
+						{
+							foundSecond = true;
+							if (wins == Equels::secondMore)
+							{
+								rating.setScore(rating.getScore() + 3);
+							}
+							else if (wins == Equels::firstMore)
+							{
+								rating.setScore(rating.getScore() + 0);
+							}
+							else
+							{
+								rating.setScore(rating.getScore() + 1);
+							}
+						}
+						rating.setCountOfGame(rating.getCountOfGame() + 1);
+						ratings.edit(findRatingByName, rating.getName(), rating);
+					}
+				}
 			}
 			break;
 		}

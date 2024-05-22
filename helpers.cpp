@@ -96,7 +96,12 @@ Game enterGame()
 	string code, name;
 	cout << "\n \t Game code: "; cin >> code;
 	cout << "\n \t Game name: "; cin >> name;
-	return Game(stadium, team, code, name, date, time, secondTeam);
+	Game game = Game(stadium, team, code, name, date, time, secondTeam);
+	if (Date::compare(Date::getNow(), game.getDateOfGame()) == Equels::firstMore)
+	{
+		game.play();
+	}
+	return game;
 }
 
 int chooseOperation()
@@ -197,4 +202,9 @@ bool findPlayerByYear(Player item, int year)
 bool findGameByDate(Game game, Date date)
 {
 	return Date::compare(game.getDateOfGame(), date) == Equels::equel;
+}
+
+bool findRatingByName(Rating item, string name)
+{
+	return item.getName().compare(name) == 0;
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include<iostream>
+#include <iostream>
 #include <ctime>
 #include "StadiumType.h"
 #include "Stadium.h"
@@ -10,6 +10,7 @@
 #include "Player.h"
 #include "Game.h"
 #include "Time.h"
+#include "Rating.h"
 using namespace std;
 Date enterDate();
 Time enterTime();
@@ -33,3 +34,4 @@ bool findStadiumByCodePredicate(Stadium item, string code);
 bool findPlayerByCode(Player item, string code);
 bool findPlayerByYear(Player item, int year);
 bool findGameByDate(Game game, Date date);
+bool findRatingByName(Rating item, string name);

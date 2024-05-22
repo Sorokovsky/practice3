@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 #include "Stadium.h"
 #include "Team.h"
 #include "Date.h"
@@ -44,11 +46,18 @@ public:
 	string getGameName();
 	Date getDateOfGame();
 	Time getTimeOfGame();
+	Team getSecondTeam();
 	void setGameCode(string gameCode);
 	void setGameName(string gameName);
 	void setDateOfGame(Date dateOfGame);
 	void setTimeOfGame(Time timeOfGame);
+	void setSecondTeam(Team secondTeam);
 	void print() override;
+	int getFirstGoals();
+	int getSecondGoals();
+	void setFirstGoals(int goals);
+	void setSecondGoals(int goals);
+	void play();
 protected:
 	void printHead() override;
 	void printBody() override;
@@ -58,4 +67,8 @@ private:
 	string gameName;
 	Date dateOfGame;
 	Time timeOfGame;
+	Team secondTeam;
+	int firstGoals;
+	int secondGoals;
+	int getRandomGoals();
 };
