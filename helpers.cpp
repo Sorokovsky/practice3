@@ -87,13 +87,16 @@ Player enterPlayer()
 Game enterGame()
 {
 	Stadium stadium = enterStadium();
+	cout << "\n \t 1 Team.";
 	Team team = enterTeam();
+	cout << "\n \t 2 Team.";
+	Team secondTeam = enterTeam();
 	Time time = enterTime();
 	Date date = enterDate();
 	string code, name;
 	cout << "\n \t Game code: "; cin >> code;
 	cout << "\n \t Game name: "; cin >> name;
-	return Game(stadium, team, code, name, date, time);
+	return Game(stadium, team, code, name, date, time, secondTeam);
 }
 
 int chooseOperation()
