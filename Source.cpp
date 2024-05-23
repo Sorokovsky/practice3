@@ -330,6 +330,10 @@ int main()
 			LinkedList<Rating> ratings = LinkedList<Rating>();
 			for (int i = 0; i < games.getSize(); i++)
 			{
+				if (Date::compare(Date::getNow(), games[i].getDateOfGame()) == Equels::secondMore)
+				{
+					continue;
+				}
 				Game game = games[i];
 				Team firstTeam = (Team)game;
 				Team secondTeam = game.getSecondTeam();
