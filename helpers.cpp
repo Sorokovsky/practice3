@@ -208,3 +208,15 @@ bool findRatingByName(Rating item, string name)
 {
 	return item.getName().compare(name) == 0;
 }
+
+bool sortRatingPredicateByScore(Rating i1, Rating i2)
+{
+	return i1.getScore() < i2.getScore();
+}
+
+bool sortRatingPredicateByDifference(Rating i1, Rating i2)
+{
+	int diff1 = i1.getGoals() - i1.getWrongs();
+	int diff2 = i2.getGoals() - i2.getWrongs();
+	return diff1 < diff2;
+}

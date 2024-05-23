@@ -35,3 +35,5 @@ bool findPlayerByCode(Player item, string code);
 bool findPlayerByYear(Player item, int year);
 bool findGameByDate(Game game, Date date);
 bool findRatingByName(Rating item, string name);
+bool sortRatingPredicateByScore(Rating i1, Rating i2);
+bool sortRatingPredicateByDifference(Rating i1, Rating i2);

@@ -363,6 +363,8 @@ int main()
 						if (isFirstTeam)
 						{
 							foundFirst = true;
+							rating.setGoals(game.getFirstGoals() + rating.getGoals());
+							rating.setWrongs(game.getSecondGoals() + rating.getWrongs());
 							if (wins == Equels::firstMore)
 							{
 								rating.setScore(rating.getScore() + 3);
@@ -379,6 +381,8 @@ int main()
 						if (isSecondTeam)
 						{
 							foundSecond = true;
+							rating.setGoals(game.getSecondGoals() + rating.getGoals());
+							rating.setWrongs(game.getFirstGoals() + rating.getWrongs());
 							if (wins == Equels::secondMore)
 							{
 								rating.setScore(rating.getScore() + 3);
@@ -398,6 +402,7 @@ int main()
 				}
 				if (foundFirst == false)
 				{
+					  
 					int score;
 					if (game.getFirstGoals() > game.getSecondGoals())
 					{
@@ -411,7 +416,7 @@ int main()
 					{
 						score = 1;
 					}
-					Rating rating(game.getTeamName(), 1, score);
+					Rating rating(game.getTeamName(), 1, score, game.getFirstGoals(), game.getSecondGoals());
 					ratings.create(rating);
 				}
 				if (foundSecond == false)
@@ -429,19 +434,22 @@ int main()
 					{
 						score = 1;
 					}
-					Rating rating(game.getSecondTeam().getTeamName(), 1, score);
+					Rating rating(game.getSecondTeam().getTeamName(), 1, score, game.getSecondGoals(), game.getFirstGoals());
 					ratings.create(rating);
 				}
 			}
-			cout << "\n \t -----------------------------";
-			cout << "\n \t | Team name | Games | Score |";
-			cout << "\n \t -----------------------------";
+			ratings.sort(sortRatingPredicateByScore);
+			ratings.sort(sortRatingPredicateByDifference);
+			cout << "\n \t ------------------------------------------";
+			cout << "\n \t | Team name | Games | Score | Difference |";
+			cout << "\n \t ------------------------------------------";
 			for (int i = 0; i < ratings.getSize(); i++)
 			{
 				Rating rating = ratings[i];
 				cout << "\n \t | "; cout.width(4); cout << rating.getName(); cout.width(4);
 				cout << " | "; cout.width(4); cout << rating.getCountOfGame(); cout.width(4);
 				cout << " | "; cout.width(4); cout << rating.getScore(); cout.width(4);
+				cout << " | "; cout.width(4); cout << rating.getGoals() << " - " << rating.getWrongs(); cout.width(4);
 				cout << " |";
 				cout << "\n \t -----------------------------";
 			}
