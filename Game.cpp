@@ -43,6 +43,8 @@ Game::Game(
 	teamName
 )
 {
+
+	srand(static_cast<unsigned>(time(NULL)));
 	this->setGameCode(gameCode);
 	this->setGameName(gameName);
 	this->setDateOfGame(dateOfGame);
@@ -61,6 +63,8 @@ Game::Game(
 ) : Team(team.getPositionName(), team.getRequirements(), team.getSalary(), team.getCoachPhoneNumber(), team.getCoachAddress(), team.getAge(), team.getTeamCode(), team.getTeamName()),
 	Stadium(stadium.getCodeOfStadiumType(), stadium.getNameOfStadiumType(), stadium.getStadiumCode(), stadium.getStadiumName(), stadium.getStadiumAddress(), stadium.getStadiumPhoneNumber(), stadium.getMasterHead(), stadium.getNotes())
 {
+
+	srand(static_cast<unsigned>(time(NULL)));
 	this->setGameCode(gameCode);
 	this->setGameName(gameName);
 	this->setDateOfGame(dateOfGame);
@@ -70,6 +74,8 @@ Game::Game(
 
 Game::Game() : Stadium(), Team()
 {
+
+	srand(static_cast<unsigned>(time(NULL)));
 	this->firstGoals = 0;
 	this->secondGoals = 0;
 }
@@ -184,6 +190,6 @@ void Game::play()
 
 int Game::getRandomGoals()
 {
-	srand(static_cast<unsigned>(time(0)));
-	return rand() % 21;
+	int result = rand() % 21;
+	return result;
 }
